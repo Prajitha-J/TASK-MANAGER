@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -6,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import { Mail, Lock, LogIn, Google } from "lucide-react";
+import { Mail, Lock, LogIn, Chrome } from "lucide-react";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -112,7 +111,7 @@ const LoginPage = () => {
               onClick={handleGoogleAuth}
               disabled={loading}
             >
-              <Google className="mr-2 h-4 w-4" />
+              <Chrome className="mr-2 h-4 w-4" />
               Google
             </Button>
           </CardContent>
