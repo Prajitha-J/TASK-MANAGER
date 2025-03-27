@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import LoginPage from "./pages/LoginPage";
@@ -15,6 +15,7 @@ import NotesPage from "./pages/NotesPage";
 import ToDoPage from "./pages/ToDoPage";
 import EventsPage from "./pages/EventsPage";
 import NotFound from "./pages/NotFound";
+import Index from "./pages/Index";
 
 const queryClient = new QueryClient();
 
@@ -27,11 +28,11 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
+              <Route path="/" element={<Index />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/mode-selection" element={<ModeSelectionPage />} />
               <Route path="/" element={<DashboardLayout />}>
-                <Route index element={<Dashboard />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/notes" element={<NotesPage />} />
                 <Route path="/to-do" element={<ToDoPage />} />

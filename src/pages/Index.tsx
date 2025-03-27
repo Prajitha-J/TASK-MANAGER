@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -10,15 +9,27 @@ const Index = () => {
   useEffect(() => {
     if (loading) return;
 
+    // If not logged in, redirect to login
     if (!currentUser) {
       navigate("/login");
-    } else if (!userData?.profileComplete) {
-      navigate("/profile");
-    } else if (!userData?.mode) {
-      navigate("/mode-selection");
-    } else {
-      navigate("/dashboard");
+      return;
     }
+    
+    // If profile is not complete, redirect to profile page
+    if (!userData?.profileComplete) {
+      navigate("/profile");
+      return;
+    }
+    
+    // If mode is not selected, redirect to mode selection
+    if (!userData?.mode) {
+      navigate("/mode-selection");
+      return;
+    }
+    
+    // Otherwise, redirect to dashboard
+    navigate("/dashboard");
+    
   }, [currentUser, userData, loading, navigate]);
 
   return (

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -5,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import { Mail, Lock, LogIn, Chrome } from "lucide-react";
+import { Mail, Lock, LogIn, Chrome, Moon, Sun } from "lucide-react";
+import { useTheme } from "../hooks/useTheme";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -14,6 +16,7 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const { signIn, signUp, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,6 +53,17 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="absolute top-4 right-4">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="rounded-full"
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+        >
+          {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+        </Button>
+      </div>
       <div className="w-full max-w-md mx-auto section-fade-in">
         <Card className="glass-effect">
           <CardHeader className="space-y-1 text-center">
