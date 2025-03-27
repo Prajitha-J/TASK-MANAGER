@@ -5,9 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Lock, Unlock, Save, Calendar, Plus, Edit, Trash2 } from "lucide-react";
+import { Lock, Unlock, Save, Calendar, Plus, Edit, Trash2, KeyRound, CheckCircle, XCircle } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
 import { toast } from "sonner";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface DiaryEntry {
   id: string;
@@ -24,32 +28,71 @@ const DiaryPage = () => {
   const [newEntry, setNewEntry] = useState({ title: "", content: "" });
   const [selectedEntry, setSelectedEntry] = useState<DiaryEntry | null>(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [hasSetupPassword, setHasSetupPassword] = useState(false);
+  const [showSetupPassword, setShowSetupPassword] = useState(false);
+  const [passwordValue, setPasswordValue] = useState("");
+  const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
   
   // In a real app, this would be securely stored and validated against a database
-  const correctPassword = "password123";
+  const [diaryPassword, setDiaryPassword] = useState("");
+  
+  // Check local storage for diary password on component mount
+  useEffect(() => {
+    const storedPassword = localStorage.getItem('diaryPassword');
+    if (storedPassword) {
+      setDiaryPassword(storedPassword);
+      setHasSetupPassword(true);
+    } else {
+      setShowSetupPassword(true);
+    }
+  }, []);
+  
+  const handlePasswordSetup = () => {
+    if (!passwordValue) {
+      toast.error("Password cannot be empty");
+      return;
+    }
+    
+    if (passwordValue !== confirmPasswordValue) {
+      toast.error("Passwords do not match");
+      return;
+    }
+    
+    // Save password to local storage (in a real app, this would be securely stored)
+    localStorage.setItem('diaryPassword', passwordValue);
+    setDiaryPassword(passwordValue);
+    setHasSetupPassword(true);
+    setShowSetupPassword(false);
+    toast.success("Password set successfully");
+  };
   
   const handleUnlock = () => {
-    if (password === correctPassword) {
+    if (password === diaryPassword) {
       setIsLocked(false);
       toast.success("Diary unlocked successfully");
       
       // Simulate fetching diary entries from database
-      const sampleEntries: DiaryEntry[] = [
-        {
-          id: "1",
-          title: "First Day of Work",
-          content: "Today was my first day at the new job. I was nervous but everyone was so welcoming.",
-          date: "2023-10-15"
-        },
-        {
-          id: "2",
-          title: "Weekend Plans",
-          content: "Planning to go hiking this weekend if the weather is good.",
-          date: "2023-10-18"
-        }
-      ];
-      
-      setDiaryEntries(sampleEntries);
+      const storedEntries = localStorage.getItem('diaryEntries');
+      if (storedEntries) {
+        setDiaryEntries(JSON.parse(storedEntries));
+      } else {
+        const sampleEntries: DiaryEntry[] = [
+          {
+            id: "1",
+            title: "First Day of Work",
+            content: "Today was my first day at the new job. I was nervous but everyone was so welcoming.",
+            date: "2023-10-15"
+          },
+          {
+            id: "2",
+            title: "Weekend Plans",
+            content: "Planning to go hiking this weekend if the weather is good.",
+            date: "2023-10-18"
+          }
+        ];
+        
+        setDiaryEntries(sampleEntries);
+      }
     } else {
       toast.error("Incorrect password");
     }
@@ -68,9 +111,11 @@ const DiaryPage = () => {
       return;
     }
     
+    let updatedEntries;
+    
     if (isEditing && selectedEntry) {
       // Update existing entry
-      const updatedEntries = diaryEntries.map(entry => 
+      updatedEntries = diaryEntries.map(entry => 
         entry.id === selectedEntry.id 
           ? { 
               ...entry, 
@@ -91,9 +136,13 @@ const DiaryPage = () => {
         date: new Date().toISOString().split('T')[0]
       };
       
-      setDiaryEntries([entry, ...diaryEntries]);
+      updatedEntries = [entry, ...diaryEntries];
+      setDiaryEntries(updatedEntries);
       toast.success("Entry saved successfully");
     }
+    
+    // Save to local storage
+    localStorage.setItem('diaryEntries', JSON.stringify(updatedEntries));
     
     setNewEntry({ title: "", content: "" });
     setSelectedEntry(null);
@@ -101,7 +150,11 @@ const DiaryPage = () => {
   };
   
   const handleDeleteEntry = (id: string) => {
-    setDiaryEntries(diaryEntries.filter(entry => entry.id !== id));
+    const updatedEntries = diaryEntries.filter(entry => entry.id !== id);
+    setDiaryEntries(updatedEntries);
+    
+    // Save to local storage
+    localStorage.setItem('diaryEntries', JSON.stringify(updatedEntries));
     
     if (selectedEntry?.id === id) {
       setSelectedEntry(null);
@@ -126,7 +179,83 @@ const DiaryPage = () => {
     setNewEntry({ title: "", content: "" });
     setIsEditing(false);
   };
+  
+  const handleResetPassword = () => {
+    setShowSetupPassword(true);
+    setHasSetupPassword(false);
+    setPasswordValue("");
+    setConfirmPasswordValue("");
+    setIsLocked(true);
+  };
 
+  // If password setup is needed
+  if (showSetupPassword) {
+    return (
+      <div className="container mx-auto">
+        <header className="mb-8">
+          <h1 className="text-4xl font-bold tracking-tight">Personal Diary</h1>
+          <p className="text-muted-foreground mt-1">
+            Keep your private thoughts secure
+          </p>
+        </header>
+        
+        <Card className="glass-effect max-w-md mx-auto">
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <KeyRound className="mr-2 h-6 w-6 text-primary" />
+              {hasSetupPassword ? "Change Password" : "Setup Diary Password"}
+            </CardTitle>
+            <CardDescription>
+              {hasSetupPassword 
+                ? "Create a new password for your diary" 
+                : "Create a password to secure your private diary"}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="new-password">New Password</Label>
+                <Input
+                  id="new-password"
+                  type="password"
+                  placeholder="Enter a new password"
+                  value={passwordValue}
+                  onChange={(e) => setPasswordValue(e.target.value)}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="confirm-password">Confirm Password</Label>
+                <Input
+                  id="confirm-password"
+                  type="password"
+                  placeholder="Confirm your password"
+                  value={confirmPasswordValue}
+                  onChange={(e) => setConfirmPasswordValue(e.target.value)}
+                />
+              </div>
+            </div>
+          </CardContent>
+          <CardFooter className="flex justify-between">
+            {hasSetupPassword && (
+              <Button variant="outline" onClick={() => setShowSetupPassword(false)}>
+                Cancel
+              </Button>
+            )}
+            <Button 
+              className="button-effect" 
+              onClick={handlePasswordSetup}
+              disabled={!passwordValue || !confirmPasswordValue}
+            >
+              <CheckCircle className="mr-2 h-4 w-4" />
+              {hasSetupPassword ? "Update Password" : "Set Password"}
+            </Button>
+          </CardFooter>
+        </Card>
+      </div>
+    );
+  }
+
+  // Regular diary view (locked or unlocked)
   return (
     <div className="container mx-auto">
       <header className="mb-8">
@@ -169,6 +298,15 @@ const DiaryPage = () => {
               </Button>
             </div>
           </CardContent>
+          <CardFooter>
+            <Button 
+              variant="ghost" 
+              className="w-full text-muted-foreground hover:text-foreground"
+              onClick={handleResetPassword}
+            >
+              Reset Password
+            </Button>
+          </CardFooter>
         </Card>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -219,14 +357,25 @@ const DiaryPage = () => {
               </CardFooter>
             </Card>
             
-            <Button 
-              variant="outline" 
-              className="w-full"
-              onClick={handleLock}
-            >
-              <Lock className="mr-2 h-4 w-4" />
-              Lock Diary
-            </Button>
+            <div className="flex gap-3">
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={handleLock}
+              >
+                <Lock className="mr-2 h-4 w-4" />
+                Lock Diary
+              </Button>
+              
+              <Button 
+                variant="ghost" 
+                className="w-full text-muted-foreground"
+                onClick={handleResetPassword}
+              >
+                <KeyRound className="mr-2 h-4 w-4" />
+                Change Password
+              </Button>
+            </div>
           </div>
           
           <Card className="glass-effect md:col-span-2">
