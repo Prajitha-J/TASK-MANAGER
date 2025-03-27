@@ -17,6 +17,22 @@ import EventsPage from "./pages/EventsPage";
 import NotFound from "./pages/NotFound";
 import Index from "./pages/Index";
 
+// Add these imports for all mode-specific pages
+import AchievementsPage from "./pages/AchievementsPage";
+import CollaborationPage from "./pages/CollaborationPage";
+// Student mode
+import TermPage from "./pages/TermPage";
+import DeadlinesPage from "./pages/DeadlinesPage";
+import AcademicPage from "./pages/AcademicPage";
+// Employee mode
+import ProjectsPage from "./pages/ProjectsPage";
+import UrgentPage from "./pages/UrgentPage";
+// Personal mode
+import GoalsPage from "./pages/GoalsPage";
+import HabitsPage from "./pages/HabitsPage";
+import GlowUpPage from "./pages/GlowUpPage";
+import DiaryPage from "./pages/DiaryPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -37,7 +53,23 @@ const App = () => (
                 <Route path="/notes" element={<NotesPage />} />
                 <Route path="/to-do" element={<ToDoPage />} />
                 <Route path="/events" element={<EventsPage />} />
-                {/* Add more routes for other components as needed */}
+                <Route path="/collab" element={<CollaborationPage />} />
+                <Route path="/achievements" element={<AchievementsPage />} />
+                
+                {/* Student Mode Pages */}
+                <Route path="/term" element={<TermPage />} />
+                <Route path="/deadlines" element={<DeadlinesPage />} />
+                <Route path="/academic" element={<AcademicPage />} />
+                
+                {/* Employee Mode Pages */}
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/urgent" element={<UrgentPage />} />
+                
+                {/* Personal Mode Pages */}
+                <Route path="/goals" element={<GoalsPage />} />
+                <Route path="/habits" element={<HabitsPage />} />
+                <Route path="/glow-up" element={<GlowUpPage />} />
+                <Route path="/diary" element={<DiaryPage />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>

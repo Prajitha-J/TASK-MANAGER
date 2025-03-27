@@ -42,12 +42,12 @@ const Sidebar = () => {
   const { userData, logout } = useAuth();
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
-  const location = useLocation();
 
   // Define navigation items based on user mode
   const getNavItems = () => {
     const commonItems = [
-      { to: "/dashboard", icon: <FileText size={20} />, label: "Notes" },
+      { to: "/dashboard", icon: <FileText size={20} />, label: "Dashboard" },
+      { to: "/notes", icon: <FileText size={20} />, label: "Notes" },
       { to: "/to-do", icon: <CheckSquare size={20} />, label: "To-Do List" },
       { to: "/events", icon: <Calendar size={20} />, label: "Event Reminders" },
       { to: "/collab", icon: <UserPlus size={20} />, label: "Collaboration" },

@@ -14,10 +14,16 @@ const ProfilePage = () => {
   const [phone, setPhone] = useState("");
   const [dob, setDob] = useState("");
   const [loading, setLoading] = useState(false);
-  const { userData, updateUserProfile } = useAuth();
+  const { userData, updateUserProfile, currentUser } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
+    // If user is not logged in, redirect to login
+    if (!currentUser) {
+      navigate("/login");
+      return;
+    }
+    
     // If user has already completed profile, redirect to mode selection
     if (userData?.profileComplete) {
       navigate("/mode-selection");
@@ -29,7 +35,7 @@ const ProfilePage = () => {
       if (userData.phone) setPhone(userData.phone);
       if (userData.dob) setDob(userData.dob);
     }
-  }, [userData, navigate]);
+  }, [userData, navigate, currentUser]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
