@@ -1,6 +1,5 @@
 
 import { connectToDatabase, Task } from '../lib/mongodb';
-import { useAuth } from '../contexts/AuthContext';
 
 export interface TaskData {
   id?: string;
@@ -26,7 +25,9 @@ const initDB = async () => {
 export const getTasks = async (userId: string): Promise<TaskData[]> => {
   try {
     await initDB();
-    const tasks = await Task.find({ userId }).sort({ createdAt: -1 });
+    // Using exec() to properly execute the mongoose query
+    const tasks = await Task.find({ userId }).sort({ createdAt: -1 }).exec();
+    
     return tasks.map(task => ({
       id: task._id.toString(),
       title: task.title,
@@ -45,10 +46,13 @@ export const getTasks = async (userId: string): Promise<TaskData[]> => {
 export const createTask = async (userId: string, taskData: TaskData): Promise<TaskData | null> => {
   try {
     await initDB();
-    const newTask = await Task.create({
+    // Using proper document creation syntax
+    const taskDoc = new Task({
       userId,
       ...taskData,
     });
+    
+    const newTask = await taskDoc.save();
     
     return {
       id: newTask._id.toString(),
@@ -68,7 +72,8 @@ export const createTask = async (userId: string, taskData: TaskData): Promise<Ta
 export const updateTask = async (taskId: string, taskData: Partial<TaskData>): Promise<boolean> => {
   try {
     await initDB();
-    await Task.findByIdAndUpdate(taskId, taskData);
+    // Using updateOne with exec() to properly execute the mongoose query
+    await Task.updateOne({ _id: taskId }, { $set: taskData }).exec();
     return true;
   } catch (error) {
     console.error('Failed to update task', error);
@@ -80,7 +85,8 @@ export const updateTask = async (taskId: string, taskData: Partial<TaskData>): P
 export const deleteTask = async (taskId: string): Promise<boolean> => {
   try {
     await initDB();
-    await Task.findByIdAndDelete(taskId);
+    // Using deleteOne with exec() to properly execute the mongoose query
+    await Task.deleteOne({ _id: taskId }).exec();
     return true;
   } catch (error) {
     console.error('Failed to delete task', error);
