@@ -71,8 +71,8 @@ export const createTask = async (userId: string, taskData: TaskData): Promise<Ta
 export const updateTask = async (taskId: string, taskData: Partial<TaskData>): Promise<boolean> => {
   try {
     await initDB();
-    // Use updateOne without exec() to avoid TypeScript errors
-    await Task.updateOne({ _id: taskId }, { $set: taskData });
+    // Use findByIdAndUpdate to update the document
+    await Task.findByIdAndUpdate(taskId, taskData);
     return true;
   } catch (error) {
     console.error('Failed to update task', error);
@@ -84,8 +84,8 @@ export const updateTask = async (taskId: string, taskData: Partial<TaskData>): P
 export const deleteTask = async (taskId: string): Promise<boolean> => {
   try {
     await initDB();
-    // Use deleteOne without exec() to avoid TypeScript errors
-    await Task.deleteOne({ _id: taskId });
+    // Use findByIdAndDelete to delete the document
+    await Task.findByIdAndDelete(taskId);
     return true;
   } catch (error) {
     console.error('Failed to delete task', error);

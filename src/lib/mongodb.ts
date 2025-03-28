@@ -48,5 +48,13 @@ const taskSchema = new mongoose.Schema({
   },
 });
 
-// Create or get the Task model
-export const Task = mongoose.models.Task || mongoose.model('Task', taskSchema);
+// Create or get the Task model - Fixed to handle model registration properly
+export const Task = (() => {
+  // Check if the model is already registered
+  try {
+    return mongoose.model('Task');
+  } catch (error) {
+    // Model not registered yet, so register it
+    return mongoose.model('Task', taskSchema);
+  }
+})();
