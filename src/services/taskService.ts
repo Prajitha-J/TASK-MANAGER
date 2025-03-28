@@ -71,8 +71,8 @@ export const createTask = async (userId: string, taskData: TaskData): Promise<Ta
 export const updateTask = async (taskId: string, taskData: Partial<TaskData>): Promise<boolean> => {
   try {
     await initDB();
-    // Using Mongoose's direct query
-    await Task.findByIdAndUpdate(taskId, taskData).exec();
+    // Using Mongoose's direct query without .exec()
+    await Task.findByIdAndUpdate(taskId, taskData);
     return true;
   } catch (error) {
     console.error('Failed to update task', error);
@@ -84,8 +84,8 @@ export const updateTask = async (taskId: string, taskData: Partial<TaskData>): P
 export const deleteTask = async (taskId: string): Promise<boolean> => {
   try {
     await initDB();
-    // Using Mongoose's direct query
-    await Task.findByIdAndDelete(taskId).exec();
+    // Using Mongoose's direct query without .exec()
+    await Task.findByIdAndDelete(taskId);
     return true;
   } catch (error) {
     console.error('Failed to delete task', error);
