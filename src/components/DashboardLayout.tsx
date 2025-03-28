@@ -1,12 +1,26 @@
 
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Outlet, Navigate, useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import { useAuth } from "../contexts/AuthContext";
-import { Navigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const DashboardLayout = () => {
   const { currentUser, userData } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Log authentication state for debugging
+    console.log("Auth state:", { currentUser, userData });
+    
+    if (!currentUser) {
+      toast.error("Please log in to access the dashboard");
+    } else if (!userData || userData.profileComplete !== true) {
+      toast.info("Please complete your profile");
+    } else if (!userData || !userData.mode) {
+      toast.info("Please select your preferred mode");
+    }
+  }, [currentUser, userData]);
 
   // If not logged in, redirect to login
   if (!currentUser) {
