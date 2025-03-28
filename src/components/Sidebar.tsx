@@ -98,7 +98,7 @@ const Sidebar = () => {
     >
       <div className="p-4 flex justify-between items-center">
         {!isCollapsed && (
-          <h2 className="font-semibold text-xl">Task Manager</h2>
+          <h2 className="font-semibold text-xl">TASK MANAGER</h2>
         )}
         <Button
           variant="ghost"

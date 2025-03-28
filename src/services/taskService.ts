@@ -25,7 +25,7 @@ const initDB = async () => {
 export const getTasks = async (userId: string): Promise<TaskData[]> => {
   try {
     await initDB();
-    const tasks = await Task.find({ userId }).sort({ createdAt: -1 }).lean();
+    const tasks = await Task.find({ userId }).sort({ createdAt: -1 });
     
     return tasks.map(task => ({
       id: task._id.toString(),
