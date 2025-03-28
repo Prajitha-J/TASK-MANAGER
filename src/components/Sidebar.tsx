@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -43,7 +42,6 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
 
-  // Define navigation items based on user mode
   const getNavItems = () => {
     const commonItems = [
       { to: "/dashboard", icon: <FileText size={20} />, label: "Dashboard" },
