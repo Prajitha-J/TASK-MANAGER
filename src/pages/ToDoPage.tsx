@@ -4,26 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckSquare, Circle, Plus, PlusCircle, Square, Trash2, XCircle } from "lucide-react";
+import { CheckSquare, Circle, Plus, PlusCircle, Square, Trash2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
-interface Task {
-  id: string;
-  title: string;
-  description: string;
-  status: "todo" | "inProgress" | "done" | "goal";
-  priority: "low" | "medium" | "high";
-  createdAt: Date;
-}
+import { useTasks } from "../hooks/useTasks";
+import { TaskData } from "../services/taskService";
+import { toast } from "sonner";
 
 const ToDoPage = () => {
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [newTask, setNewTask] = useState<Omit<Task, "id" | "createdAt">>({
+  const { tasks, isLoading, addTask, updateTaskStatus, removeTask } = useTasks();
+  const [newTask, setNewTask] = useState<Omit<TaskData, "id" | "createdAt">>({
     title: "",
     description: "",
     status: "todo",
@@ -31,16 +25,13 @@ const ToDoPage = () => {
   });
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const addTask = () => {
-    if (newTask.title.trim() === "") return;
+  const handleAddTask = () => {
+    if (newTask.title.trim() === "") {
+      toast.error("Task title cannot be empty");
+      return;
+    }
 
-    const task: Task = {
-      id: Date.now().toString(),
-      ...newTask,
-      createdAt: new Date(),
-    };
-
-    setTasks([task, ...tasks]);
+    addTask(newTask);
     setNewTask({
       title: "",
       description: "",
@@ -50,17 +41,7 @@ const ToDoPage = () => {
     setIsDialogOpen(false);
   };
 
-  const updateTaskStatus = (id: string, status: Task["status"]) => {
-    setTasks(
-      tasks.map((task) => (task.id === id ? { ...task, status } : task))
-    );
-  };
-
-  const deleteTask = (id: string) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
-
-  const getPriorityColor = (priority: Task["priority"]) => {
+  const getPriorityColor = (priority: TaskData["priority"]) => {
     switch (priority) {
       case "high":
         return "bg-red-500/10 text-red-500 hover:bg-red-500/20";
@@ -73,7 +54,7 @@ const ToDoPage = () => {
     }
   };
 
-  const getStatusIcon = (status: Task["status"]) => {
+  const getStatusIcon = (status: TaskData["status"]) => {
     switch (status) {
       case "todo":
         return <Square className="h-5 w-5 text-muted-foreground" />;
@@ -88,12 +69,20 @@ const ToDoPage = () => {
     }
   };
 
-  const filterTasksByStatus = (status: Task["status"]) => {
+  const filterTasksByStatus = (status: TaskData["status"]) => {
     return tasks.filter((task) => task.status === status);
   };
 
-  const renderTaskList = (status: Task["status"]) => {
+  const renderTaskList = (status: TaskData["status"]) => {
     const filteredTasks = filterTasksByStatus(status);
+
+    if (isLoading) {
+      return (
+        <div className="text-center p-6">
+          <p className="text-muted-foreground">Loading tasks...</p>
+        </div>
+      );
+    }
 
     if (filteredTasks.length === 0) {
       return (
@@ -120,7 +109,10 @@ const ToDoPage = () => {
                     : status === "done"
                     ? "todo"
                     : "inProgress";
-                updateTaskStatus(task.id, nextStatus);
+                
+                if (task.id) {
+                  updateTaskStatus(task.id, nextStatus);
+                }
               }}
               className="mt-1"
             >
@@ -136,14 +128,12 @@ const ToDoPage = () => {
             </div>
             <div className="flex flex-col items-end space-y-2">
               <Badge
-                className={`${getPriorityColor(
-                  task.priority
-                )} text-xs font-normal`}
+                className={`${getPriorityColor(task.priority)} text-xs font-normal`}
               >
                 {task.priority}
               </Badge>
               <button
-                onClick={() => deleteTask(task.id)}
+                onClick={() => task.id && removeTask(task.id)}
                 className="text-muted-foreground hover:text-destructive transition-colors"
               >
                 <Trash2 className="h-4 w-4" />
@@ -244,7 +234,7 @@ const ToDoPage = () => {
               </div>
             </div>
             <DialogFooter>
-              <Button onClick={addTask}>Add Task</Button>
+              <Button onClick={handleAddTask}>Add Task</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>

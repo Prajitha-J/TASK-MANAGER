@@ -1,0 +1,89 @@
+
+import { connectToDatabase, Task } from '../lib/mongodb';
+import { useAuth } from '../contexts/AuthContext';
+
+export interface TaskData {
+  id?: string;
+  title: string;
+  description: string;
+  status: "todo" | "inProgress" | "done" | "goal";
+  priority: "low" | "medium" | "high";
+  createdAt?: Date;
+}
+
+// Initialize the database connection
+const initDB = async () => {
+  try {
+    await connectToDatabase();
+    return true;
+  } catch (error) {
+    console.error('Failed to initialize database', error);
+    return false;
+  }
+};
+
+// Get all tasks for a user
+export const getTasks = async (userId: string): Promise<TaskData[]> => {
+  try {
+    await initDB();
+    const tasks = await Task.find({ userId }).sort({ createdAt: -1 });
+    return tasks.map(task => ({
+      id: task._id.toString(),
+      title: task.title,
+      description: task.description,
+      status: task.status,
+      priority: task.priority,
+      createdAt: task.createdAt,
+    }));
+  } catch (error) {
+    console.error('Failed to fetch tasks', error);
+    return [];
+  }
+};
+
+// Create a new task
+export const createTask = async (userId: string, taskData: TaskData): Promise<TaskData | null> => {
+  try {
+    await initDB();
+    const newTask = await Task.create({
+      userId,
+      ...taskData,
+    });
+    
+    return {
+      id: newTask._id.toString(),
+      title: newTask.title,
+      description: newTask.description,
+      status: newTask.status,
+      priority: newTask.priority,
+      createdAt: newTask.createdAt,
+    };
+  } catch (error) {
+    console.error('Failed to create task', error);
+    return null;
+  }
+};
+
+// Update a task
+export const updateTask = async (taskId: string, taskData: Partial<TaskData>): Promise<boolean> => {
+  try {
+    await initDB();
+    await Task.findByIdAndUpdate(taskId, taskData);
+    return true;
+  } catch (error) {
+    console.error('Failed to update task', error);
+    return false;
+  }
+};
+
+// Delete a task
+export const deleteTask = async (taskId: string): Promise<boolean> => {
+  try {
+    await initDB();
+    await Task.findByIdAndDelete(taskId);
+    return true;
+  } catch (error) {
+    console.error('Failed to delete task', error);
+    return false;
+  }
+};

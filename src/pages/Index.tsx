@@ -17,13 +17,13 @@ const Index = () => {
     }
     
     // If profile is not complete, redirect to profile page
-    if (!userData || !userData.profileComplete) {
+    if (!userData || userData.profileComplete !== true) {
       navigate("/profile");
       return;
     }
     
     // If mode is not selected, redirect to mode selection
-    if (!userData.mode) {
+    if (!userData || !userData.mode) {
       navigate("/mode-selection");
       return;
     }

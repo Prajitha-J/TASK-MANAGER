@@ -14,12 +14,12 @@ const DashboardLayout = () => {
   }
 
   // If profile not complete, redirect to profile
-  if (!userData || !userData.profileComplete !== true) {
+  if (!userData || userData.profileComplete !== true) {
     return <Navigate to="/profile" />;
   }
 
   // If mode not selected, redirect to mode selection
-  if (!userData.mode) {
+  if (!userData || !userData.mode) {
     return <Navigate to="/mode-selection" />;
   }
 
