@@ -25,8 +25,7 @@ const initDB = async () => {
 export const getTasks = async (userId: string): Promise<TaskData[]> => {
   try {
     await initDB();
-    // Using exec() to properly execute the mongoose query
-    const tasks = await Task.find({ userId }).sort({ createdAt: -1 }).exec();
+    const tasks = await Task.find({ userId }).sort({ createdAt: -1 });
     
     return tasks.map(task => ({
       id: task._id.toString(),
@@ -46,7 +45,7 @@ export const getTasks = async (userId: string): Promise<TaskData[]> => {
 export const createTask = async (userId: string, taskData: TaskData): Promise<TaskData | null> => {
   try {
     await initDB();
-    // Using proper document creation syntax
+    // Create a new task document and save it
     const taskDoc = new Task({
       userId,
       ...taskData,
@@ -72,8 +71,8 @@ export const createTask = async (userId: string, taskData: TaskData): Promise<Ta
 export const updateTask = async (taskId: string, taskData: Partial<TaskData>): Promise<boolean> => {
   try {
     await initDB();
-    // Using updateOne with exec() to properly execute the mongoose query
-    await Task.updateOne({ _id: taskId }, { $set: taskData }).exec();
+    // Use updateOne without exec() to avoid TypeScript errors
+    await Task.updateOne({ _id: taskId }, { $set: taskData });
     return true;
   } catch (error) {
     console.error('Failed to update task', error);
@@ -85,8 +84,8 @@ export const updateTask = async (taskId: string, taskData: Partial<TaskData>): P
 export const deleteTask = async (taskId: string): Promise<boolean> => {
   try {
     await initDB();
-    // Using deleteOne with exec() to properly execute the mongoose query
-    await Task.deleteOne({ _id: taskId }).exec();
+    // Use deleteOne without exec() to avoid TypeScript errors
+    await Task.deleteOne({ _id: taskId });
     return true;
   } catch (error) {
     console.error('Failed to delete task', error);
