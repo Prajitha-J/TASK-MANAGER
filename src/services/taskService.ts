@@ -26,9 +26,8 @@ export const getTasks = async (userId: string): Promise<TaskData[]> => {
   try {
     await initDB();
     
-    // Use toArray() to convert the cursor to an array of documents
-    const tasksQuery = Task.find({ userId }).sort({ createdAt: -1 });
-    const tasks = await tasksQuery.lean();
+    // Use exec() to execute the query and get a Promise
+    const tasks = await Task.find({ userId }).sort({ createdAt: -1 }).exec();
     
     return tasks.map(task => ({
       id: task._id.toString(),
@@ -74,9 +73,8 @@ export const createTask = async (userId: string, taskData: TaskData): Promise<Ta
 export const updateTask = async (taskId: string, taskData: Partial<TaskData>): Promise<boolean> => {
   try {
     await initDB();
-    // Use lean() to get a plain JavaScript object
-    const updateQuery = Task.findByIdAndUpdate(taskId, taskData);
-    const result = await updateQuery.lean();
+    // Use exec() to execute the query
+    const result = await Task.findByIdAndUpdate(taskId, taskData).exec();
     return !!result; // Convert to boolean
   } catch (error) {
     console.error('Failed to update task', error);
@@ -88,9 +86,8 @@ export const updateTask = async (taskId: string, taskData: Partial<TaskData>): P
 export const deleteTask = async (taskId: string): Promise<boolean> => {
   try {
     await initDB();
-    // Use lean() to get a plain JavaScript object
-    const deleteQuery = Task.findByIdAndDelete(taskId);
-    const result = await deleteQuery.lean();
+    // Use exec() to execute the query
+    const result = await Task.findByIdAndDelete(taskId).exec();
     return !!result; // Convert to boolean
   } catch (error) {
     console.error('Failed to delete task', error);
