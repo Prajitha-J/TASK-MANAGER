@@ -24,16 +24,16 @@ const ProfilePage = () => {
       return;
     }
     
-    // If user has already completed profile, redirect to mode selection
-    if (userData?.profileComplete) {
-      navigate("/mode-selection");
-    }
-
     // Pre-fill form if data exists
     if (userData) {
       if (userData.name) setName(userData.name);
       if (userData.phone) setPhone(userData.phone);
       if (userData.dob) setDob(userData.dob);
+      
+      // Only redirect if profile is already complete
+      if (userData.profileComplete) {
+        navigate("/mode-selection");
+      }
     }
   }, [userData, navigate, currentUser]);
 
