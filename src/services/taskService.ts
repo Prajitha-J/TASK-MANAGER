@@ -25,8 +25,9 @@ const initDB = async () => {
 export const getTasks = async (userId: string): Promise<TaskData[]> => {
   try {
     await initDB();
-    // Adding .exec() to resolve TypeScript issues with Mongoose queries
-    const tasks = await Task.find({ userId }).sort({ createdAt: -1 }).exec();
+    
+    // Convert mongoose query to promise with lean() to avoid TypeScript issues
+    const tasks = await Task.find({ userId }).sort({ createdAt: -1 }).lean();
     
     return tasks.map(task => ({
       id: task._id.toString(),
@@ -72,8 +73,8 @@ export const createTask = async (userId: string, taskData: TaskData): Promise<Ta
 export const updateTask = async (taskId: string, taskData: Partial<TaskData>): Promise<boolean> => {
   try {
     await initDB();
-    // Adding .exec() to resolve TypeScript issues with Mongoose queries
-    await Task.findByIdAndUpdate(taskId, taskData).exec();
+    // Using await directly on Mongoose query
+    await Task.findByIdAndUpdate(taskId, taskData).lean();
     return true;
   } catch (error) {
     console.error('Failed to update task', error);
@@ -85,8 +86,8 @@ export const updateTask = async (taskId: string, taskData: Partial<TaskData>): P
 export const deleteTask = async (taskId: string): Promise<boolean> => {
   try {
     await initDB();
-    // Adding .exec() to resolve TypeScript issues with Mongoose queries
-    await Task.findByIdAndDelete(taskId).exec();
+    // Using await directly on Mongoose query
+    await Task.findByIdAndDelete(taskId).lean();
     return true;
   } catch (error) {
     console.error('Failed to delete task', error);
