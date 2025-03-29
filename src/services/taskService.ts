@@ -26,10 +26,11 @@ export const getTasks = async (userId: string): Promise<TaskData[]> => {
   try {
     await initDB();
     
-    // Use Promise to handle the Mongoose query
-    const tasks = await Task.find({ userId }).sort({ createdAt: -1 }).exec();
+    // Use toArray() to convert the cursor to an array of documents
+    const tasks = await Task.find({ userId }).sort({ createdAt: -1 });
+    const taskDocs = await tasks;
     
-    return tasks.map(task => ({
+    return taskDocs.map(task => ({
       id: task._id.toString(),
       title: task.title,
       description: task.description,
@@ -73,9 +74,9 @@ export const createTask = async (userId: string, taskData: TaskData): Promise<Ta
 export const updateTask = async (taskId: string, taskData: Partial<TaskData>): Promise<boolean> => {
   try {
     await initDB();
-    // Use Promise to handle the Mongoose query
-    await Task.findByIdAndUpdate(taskId, taskData).exec();
-    return true;
+    // Handle update without using exec()
+    const result = await Task.findByIdAndUpdate(taskId, taskData);
+    return !!result; // Convert to boolean
   } catch (error) {
     console.error('Failed to update task', error);
     return false;
@@ -86,9 +87,9 @@ export const updateTask = async (taskId: string, taskData: Partial<TaskData>): P
 export const deleteTask = async (taskId: string): Promise<boolean> => {
   try {
     await initDB();
-    // Use Promise to handle the Mongoose query
-    await Task.findByIdAndDelete(taskId).exec();
-    return true;
+    // Handle delete without using exec()
+    const result = await Task.findByIdAndDelete(taskId);
+    return !!result; // Convert to boolean
   } catch (error) {
     console.error('Failed to delete task', error);
     return false;
