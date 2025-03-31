@@ -7,7 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { User, CalendarDays, Phone } from "lucide-react";
+import { User, CalendarDays, Phone, Moon, Sun } from "lucide-react";
+import { useTheme } from "../hooks/useTheme";
 
 const ProfilePage = () => {
   const [name, setName] = useState("");
@@ -16,6 +17,7 @@ const ProfilePage = () => {
   const [loading, setLoading] = useState(false);
   const { userData, updateUserProfile, currentUser } = useAuth();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     // If user is not logged in, redirect to login
@@ -30,8 +32,8 @@ const ProfilePage = () => {
       if (userData.phone) setPhone(userData.phone);
       if (userData.dob) setDob(userData.dob);
       
-      // Only redirect if profile is already complete
-      if (userData.profileComplete) {
+      // Only redirect if profile is already complete AND not arriving directly to this page
+      if (userData.profileComplete && window.location.pathname !== "/profile") {
         navigate("/mode-selection");
       }
     }
@@ -59,24 +61,35 @@ const ProfilePage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="absolute top-4 right-4">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="rounded-full"
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+        >
+          {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+        </Button>
+      </div>
       <div className="w-full max-w-md mx-auto section-fade-in">
-        <Card className="glass-effect">
-          <CardHeader className="space-y-1">
+        <Card className="glass-effect overflow-hidden border-accent border-2">
+          <CardHeader className="space-y-1 bg-gradient-to-r from-primary/30 to-accent/30">
             <CardTitle className="text-3xl font-bold tracking-tight text-center">Complete Your Profile</CardTitle>
             <CardDescription className="text-muted-foreground text-center">
               Please provide your personal information
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="mt-4">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="name">Full Name</Label>
+                <Label htmlFor="name" className="text-foreground/80 font-medium">Full Name</Label>
                 <div className="relative">
-                  <User className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
+                  <User className="absolute left-3 top-3 h-5 w-5 text-primary" />
                   <Input
                     id="name"
                     placeholder="Enter your full name"
-                    className="pl-10"
+                    className="pl-10 border-primary/30 focus:border-primary"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -85,13 +98,13 @@ const ProfilePage = () => {
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number</Label>
+                <Label htmlFor="phone" className="text-foreground/80 font-medium">Phone Number</Label>
                 <div className="relative">
-                  <Phone className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
+                  <Phone className="absolute left-3 top-3 h-5 w-5 text-primary" />
                   <Input
                     id="phone"
                     placeholder="Enter your phone number"
-                    className="pl-10"
+                    className="pl-10 border-primary/30 focus:border-primary"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
@@ -100,13 +113,13 @@ const ProfilePage = () => {
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="dob">Date of Birth</Label>
+                <Label htmlFor="dob" className="text-foreground/80 font-medium">Date of Birth</Label>
                 <div className="relative">
-                  <CalendarDays className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
+                  <CalendarDays className="absolute left-3 top-3 h-5 w-5 text-primary" />
                   <Input
                     id="dob"
                     type="date"
-                    className="pl-10"
+                    className="pl-10 border-primary/30 focus:border-primary"
                     value={dob}
                     onChange={(e) => setDob(e.target.value)}
                     required
@@ -114,7 +127,11 @@ const ProfilePage = () => {
                 </div>
               </div>
               
-              <Button type="submit" className="w-full button-effect" disabled={loading}>
+              <Button 
+                type="submit" 
+                className="w-full button-effect bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
+                disabled={loading}
+              >
                 Continue
               </Button>
             </form>

@@ -34,8 +34,9 @@ const Index = () => {
   }, [currentUser, userData, loading, navigate]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="animate-pulse">Loading...</div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-background to-secondary">
+      <div className="animate-pulse text-xl font-medium text-foreground/70">Loading your experience...</div>
+      <div className="mt-4 w-16 h-1 bg-primary rounded-full"></div>
     </div>
   );
 };

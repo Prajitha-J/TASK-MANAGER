@@ -52,12 +52,12 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/50 to-background p-4">
       <div className="absolute top-4 right-4">
         <Button 
           variant="ghost" 
           size="icon" 
-          className="rounded-full"
+          className="rounded-full hover:bg-primary/20"
           onClick={toggleTheme}
           aria-label="Toggle theme"
         >
@@ -65,8 +65,8 @@ const LoginPage = () => {
         </Button>
       </div>
       <div className="w-full max-w-md mx-auto section-fade-in">
-        <Card className="glass-effect">
-          <CardHeader className="space-y-1 text-center">
+        <Card className="glass-effect overflow-hidden border-accent border-2">
+          <CardHeader className="space-y-1 text-center bg-gradient-to-r from-primary/30 to-accent/30 pb-6">
             <CardTitle className="text-3xl font-bold tracking-tight">
               {isLoginMode ? "Welcome Back" : "Create Account"}
             </CardTitle>
@@ -76,15 +76,15 @@ const LoginPage = () => {
                 : "Fill in your details to create a new account"}
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="mt-4">
             <form onSubmit={handleAuth} className="space-y-4">
               <div className="space-y-2">
                 <div className="relative">
-                  <Mail className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
+                  <Mail className="absolute left-3 top-3 h-5 w-5 text-primary" />
                   <Input
                     type="email"
                     placeholder="Email"
-                    className="pl-10"
+                    className="pl-10 border-primary/30 focus:border-primary"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -93,18 +93,22 @@ const LoginPage = () => {
               </div>
               <div className="space-y-2">
                 <div className="relative">
-                  <Lock className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
+                  <Lock className="absolute left-3 top-3 h-5 w-5 text-primary" />
                   <Input
                     type="password"
                     placeholder="Password"
-                    className="pl-10"
+                    className="pl-10 border-primary/30 focus:border-primary"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                 </div>
               </div>
-              <Button type="submit" className="w-full button-effect" disabled={loading}>
+              <Button 
+                type="submit" 
+                className="w-full button-effect bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90" 
+                disabled={loading}
+              >
                 <LogIn className="mr-2 h-4 w-4" />
                 {isLoginMode ? "Sign In" : "Sign Up"}
               </Button>
@@ -121,7 +125,7 @@ const LoginPage = () => {
 
             <Button
               variant="outline"
-              className="w-full button-effect"
+              className="w-full button-effect border-primary/30 hover:bg-primary/10"
               onClick={handleGoogleAuth}
               disabled={loading}
             >
@@ -132,7 +136,7 @@ const LoginPage = () => {
           <CardFooter className="flex justify-center">
             <Button
               variant="link"
-              className="text-sm text-muted-foreground"
+              className="text-sm text-primary hover:text-primary/80"
               onClick={() => setIsLoginMode(!isLoginMode)}
             >
               {isLoginMode
