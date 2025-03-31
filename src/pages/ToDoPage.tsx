@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -123,16 +122,16 @@ const ToDoPage = () => {
           >
             <button
               onClick={() => {
-                let nextStatus = status === "todo"
-                  ? "inProgress"
-                  : status === "inProgress"
-                  ? "done"
-                  : status === "done"
-                  ? "todo"
-                  : "inProgress";
+                let nextStatus: "todo" | "inProgress" | "done" | "goal";
                 
-                // Goals stay as goals when cycling through statuses
-                if (status === "goal") {
+                if (status === "todo") {
+                  nextStatus = "inProgress";
+                } else if (status === "inProgress") {
+                  nextStatus = "done";
+                } else if (status === "done") {
+                  nextStatus = "todo";
+                } else {
+                  // For "goal" status, it stays as "goal"
                   nextStatus = "goal";
                 }
                 
@@ -225,7 +224,7 @@ const ToDoPage = () => {
                     <Label htmlFor="status">Status</Label>
                     <Select
                       value={newTask.status}
-                      onValueChange={(value: any) =>
+                      onValueChange={(value: "todo" | "inProgress" | "done" | "goal") =>
                         setNewTask({ ...newTask, status: value })
                       }
                     >
@@ -243,7 +242,7 @@ const ToDoPage = () => {
                     <Label htmlFor="priority">Priority</Label>
                     <Select
                       value={newTask.priority}
-                      onValueChange={(value: any) =>
+                      onValueChange={(value: "low" | "medium" | "high") =>
                         setNewTask({ ...newTask, priority: value })
                       }
                     >
@@ -307,7 +306,7 @@ const ToDoPage = () => {
                   <Label htmlFor="priority">Priority</Label>
                   <Select
                     value={newTask.priority}
-                    onValueChange={(value: any) =>
+                    onValueChange={(value: "low" | "medium" | "high") =>
                       setNewTask({ ...newTask, priority: value })
                     }
                   >

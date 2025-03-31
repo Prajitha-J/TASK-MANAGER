@@ -1,6 +1,4 @@
 
-import { connectToDatabase, Task } from '../lib/mongodb';
-
 export interface TaskData {
   id?: string;
   title: string;
@@ -10,32 +8,16 @@ export interface TaskData {
   createdAt?: Date;
 }
 
-// Initialize the database connection
-const initDB = async () => {
-  try {
-    await connectToDatabase();
-    return true;
-  } catch (error) {
-    console.error('Failed to initialize database', error);
-    return false;
-  }
-};
-
-// Get all tasks for a user
+// Get all tasks for a user from localStorage
 export const getTasks = async (userId: string): Promise<TaskData[]> => {
   try {
-    await initDB();
+    const tasksString = localStorage.getItem(`tasks-${userId}`);
+    if (!tasksString) return [];
     
-    // Use await directly on the query without calling exec()
-    const tasks = await Task.find({ userId }).sort({ createdAt: -1 });
-    
-    return tasks.map(task => ({
-      id: task._id.toString(),
-      title: task.title,
-      description: task.description,
-      status: task.status,
-      priority: task.priority,
-      createdAt: task.createdAt,
+    const tasks = JSON.parse(tasksString);
+    return tasks.map((task: any) => ({
+      ...task,
+      createdAt: task.createdAt ? new Date(task.createdAt) : new Date(),
     }));
   } catch (error) {
     console.error('Failed to fetch tasks', error);
@@ -43,52 +25,76 @@ export const getTasks = async (userId: string): Promise<TaskData[]> => {
   }
 };
 
-// Create a new task
+// Create a new task and save to localStorage
 export const createTask = async (userId: string, taskData: TaskData): Promise<TaskData | null> => {
   try {
-    await initDB();
-    // Create a new task document and save it
-    const taskDoc = new Task({
-      userId,
+    const tasks = await getTasks(userId);
+    
+    const newTask = {
       ...taskData,
-    });
-    
-    const newTask = await taskDoc.save();
-    
-    return {
-      id: newTask._id.toString(),
-      title: newTask.title,
-      description: newTask.description,
-      status: newTask.status,
-      priority: newTask.priority,
-      createdAt: newTask.createdAt,
+      id: crypto.randomUUID(),
+      createdAt: new Date(),
     };
+    
+    const updatedTasks = [newTask, ...tasks];
+    localStorage.setItem(`tasks-${userId}`, JSON.stringify(updatedTasks));
+    
+    return newTask;
   } catch (error) {
     console.error('Failed to create task', error);
     return null;
   }
 };
 
-// Update a task
+// Update a task in localStorage
 export const updateTask = async (taskId: string, taskData: Partial<TaskData>): Promise<boolean> => {
   try {
-    await initDB();
-    // Use await directly on the query without calling exec()
-    const result = await Task.findByIdAndUpdate(taskId, taskData);
-    return !!result; // Convert to boolean
+    // Since we don't know which user this belongs to, we need to check all user tasks
+    // This is inefficient but works for our purpose
+    const localStorageKeys = Object.keys(localStorage);
+    const taskKeys = localStorageKeys.filter(key => key.startsWith('tasks-'));
+    
+    for (const key of taskKeys) {
+      const userId = key.replace('tasks-', '');
+      const tasks = await getTasks(userId);
+      
+      const taskIndex = tasks.findIndex(task => task.id === taskId);
+      if (taskIndex !== -1) {
+        tasks[taskIndex] = {
+          ...tasks[taskIndex],
+          ...taskData,
+        };
+        
+        localStorage.setItem(key, JSON.stringify(tasks));
+        return true;
+      }
+    }
+    
+    return false;
   } catch (error) {
     console.error('Failed to update task', error);
     return false;
   }
 };
 
-// Delete a task
+// Delete a task from localStorage
 export const deleteTask = async (taskId: string): Promise<boolean> => {
   try {
-    await initDB();
-    // Use await directly on the query without calling exec()
-    const result = await Task.findByIdAndDelete(taskId);
-    return !!result; // Convert to boolean
+    // Since we don't know which user this belongs to, we need to check all user tasks
+    const localStorageKeys = Object.keys(localStorage);
+    const taskKeys = localStorageKeys.filter(key => key.startsWith('tasks-'));
+    
+    for (const key of taskKeys) {
+      const tasks = await getTasks(key.replace('tasks-', ''));
+      
+      const filteredTasks = tasks.filter(task => task.id !== taskId);
+      if (filteredTasks.length !== tasks.length) {
+        localStorage.setItem(key, JSON.stringify(filteredTasks));
+        return true;
+      }
+    }
+    
+    return false;
   } catch (error) {
     console.error('Failed to delete task', error);
     return false;

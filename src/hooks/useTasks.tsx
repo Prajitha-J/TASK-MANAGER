@@ -7,7 +7,7 @@ import { toast } from 'sonner';
 export const useTasks = () => {
   const { currentUser } = useAuth();
   const queryClient = useQueryClient();
-  const userId = currentUser?.uid || '';
+  const userId = currentUser?.uid || 'anonymous';
 
   const { data: tasks = [], isLoading, error } = useQuery({
     queryKey: ['tasks', userId],
@@ -56,7 +56,7 @@ export const useTasks = () => {
     createTaskMutation.mutate(task);
   };
 
-  const updateTaskStatus = (taskId: string, status: TaskData['status']) => {
+  const updateTaskStatus = (taskId: string, status: "todo" | "inProgress" | "done" | "goal") => {
     updateTaskMutation.mutate({ taskId, taskData: { status } });
   };
 
