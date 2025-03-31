@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckSquare, Circle, Plus, PlusCircle, Square, Trash2 } from "lucide-react";
+import { CheckSquare, Circle, Plus, PlusCircle, Square, Trash2, Target } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -24,6 +24,7 @@ const ToDoPage = () => {
     priority: "medium",
   });
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isGoalDialogOpen, setIsGoalDialogOpen] = useState(false);
 
   const handleAddTask = () => {
     if (newTask.title.trim() === "") {
@@ -39,6 +40,27 @@ const ToDoPage = () => {
       priority: "medium",
     });
     setIsDialogOpen(false);
+  };
+
+  const handleAddGoal = () => {
+    if (newTask.title.trim() === "") {
+      toast.error("Goal title cannot be empty");
+      return;
+    }
+
+    // Set status to "goal" for goal items
+    addTask({
+      ...newTask,
+      status: "goal"
+    });
+    
+    setNewTask({
+      title: "",
+      description: "",
+      status: "todo",
+      priority: "medium",
+    });
+    setIsGoalDialogOpen(false);
   };
 
   const getPriorityColor = (priority: TaskData["priority"]) => {
@@ -63,7 +85,7 @@ const ToDoPage = () => {
       case "done":
         return <CheckSquare className="h-5 w-5 text-green-500" />;
       case "goal":
-        return <PlusCircle className="h-5 w-5 text-purple-500" />;
+        return <Target className="h-5 w-5 text-purple-500" />;
       default:
         return null;
     }
@@ -101,14 +123,18 @@ const ToDoPage = () => {
           >
             <button
               onClick={() => {
-                const nextStatus =
-                  status === "todo"
-                    ? "inProgress"
-                    : status === "inProgress"
-                    ? "done"
-                    : status === "done"
-                    ? "todo"
-                    : "inProgress";
+                let nextStatus = status === "todo"
+                  ? "inProgress"
+                  : status === "inProgress"
+                  ? "done"
+                  : status === "done"
+                  ? "todo"
+                  : "inProgress";
+                
+                // Goals stay as goals when cycling through statuses
+                if (status === "goal") {
+                  nextStatus = "goal";
+                }
                 
                 if (task.id) {
                   updateTaskStatus(task.id, nextStatus);
@@ -155,63 +181,127 @@ const ToDoPage = () => {
       </header>
 
       <div className="flex justify-between items-center mb-6">
-        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogTrigger asChild>
-            <Button className="button-effect">
-              <Plus className="mr-2 h-4 w-4" />
-              Add Task
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle>Add New Task</DialogTitle>
-              <DialogDescription>
-                Create a new task to keep track of your work.
-              </DialogDescription>
-            </DialogHeader>
-            <div className="space-y-4 py-4">
-              <div className="space-y-2">
-                <Label htmlFor="title">Title</Label>
-                <Input
-                  id="title"
-                  placeholder="Task title"
-                  value={newTask.title}
-                  onChange={(e) =>
-                    setNewTask({ ...newTask, title: e.target.value })
-                  }
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="description">Description (optional)</Label>
-                <Textarea
-                  id="description"
-                  placeholder="Task description"
-                  rows={3}
-                  value={newTask.description}
-                  onChange={(e) =>
-                    setNewTask({ ...newTask, description: e.target.value })
-                  }
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
+        <div className="flex gap-4">
+          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+            <DialogTrigger asChild>
+              <Button className="button-effect">
+                <Plus className="mr-2 h-4 w-4" />
+                Add Task
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>Add New Task</DialogTitle>
+                <DialogDescription>
+                  Create a new task to keep track of your work.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="space-y-4 py-4">
                 <div className="space-y-2">
-                  <Label htmlFor="status">Status</Label>
-                  <Select
-                    value={newTask.status}
-                    onValueChange={(value: any) =>
-                      setNewTask({ ...newTask, status: value })
+                  <Label htmlFor="title">Title</Label>
+                  <Input
+                    id="title"
+                    placeholder="Task title"
+                    value={newTask.title}
+                    onChange={(e) =>
+                      setNewTask({ ...newTask, title: e.target.value })
                     }
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select status" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="todo">To Do</SelectItem>
-                      <SelectItem value="inProgress">In Progress</SelectItem>
-                      <SelectItem value="done">Done</SelectItem>
-                      <SelectItem value="goal">Goal</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="description">Description (optional)</Label>
+                  <Textarea
+                    id="description"
+                    placeholder="Task description"
+                    rows={3}
+                    value={newTask.description}
+                    onChange={(e) =>
+                      setNewTask({ ...newTask, description: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="status">Status</Label>
+                    <Select
+                      value={newTask.status}
+                      onValueChange={(value: any) =>
+                        setNewTask({ ...newTask, status: value })
+                      }
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select status" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="todo">To Do</SelectItem>
+                        <SelectItem value="inProgress">In Progress</SelectItem>
+                        <SelectItem value="done">Done</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="priority">Priority</Label>
+                    <Select
+                      value={newTask.priority}
+                      onValueChange={(value: any) =>
+                        setNewTask({ ...newTask, priority: value })
+                      }
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select priority" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="low">Low</SelectItem>
+                        <SelectItem value="medium">Medium</SelectItem>
+                        <SelectItem value="high">High</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </div>
+              <DialogFooter>
+                <Button onClick={handleAddTask}>Add Task</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+
+          <Dialog open={isGoalDialogOpen} onOpenChange={setIsGoalDialogOpen}>
+            <DialogTrigger asChild>
+              <Button className="button-effect" variant="secondary">
+                <Target className="mr-2 h-4 w-4" />
+                Add Goal
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>Add New Goal</DialogTitle>
+                <DialogDescription>
+                  Create a new goal to track your progress.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="space-y-4 py-4">
+                <div className="space-y-2">
+                  <Label htmlFor="goal-title">Goal Title</Label>
+                  <Input
+                    id="goal-title"
+                    placeholder="Goal title"
+                    value={newTask.title}
+                    onChange={(e) =>
+                      setNewTask({ ...newTask, title: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="goal-description">Description (optional)</Label>
+                  <Textarea
+                    id="goal-description"
+                    placeholder="Goal description"
+                    rows={3}
+                    value={newTask.description}
+                    onChange={(e) =>
+                      setNewTask({ ...newTask, description: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="priority">Priority</Label>
@@ -232,12 +322,12 @@ const ToDoPage = () => {
                   </Select>
                 </div>
               </div>
-            </div>
-            <DialogFooter>
-              <Button onClick={handleAddTask}>Add Task</Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+              <DialogFooter>
+                <Button onClick={handleAddGoal}>Add Goal</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
 
       <Tabs defaultValue="todo" className="w-full">

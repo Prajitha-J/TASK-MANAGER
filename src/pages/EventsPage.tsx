@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar";
@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { CalendarDays, Clock, Plus, Trash2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { toast } from "sonner";
 
 interface Event {
   id: string;
@@ -29,8 +30,32 @@ const EventsPage = () => {
   });
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+  // Load events from localStorage on component mount
+  useEffect(() => {
+    const savedEvents = localStorage.getItem('events');
+    if (savedEvents) {
+      const parsedEvents = JSON.parse(savedEvents);
+      
+      // Convert string dates back to Date objects
+      const formattedEvents = parsedEvents.map((event: any) => ({
+        ...event,
+        date: new Date(event.date)
+      }));
+      
+      setEvents(formattedEvents);
+    }
+  }, []);
+
+  // Save events to localStorage whenever events change
+  useEffect(() => {
+    localStorage.setItem('events', JSON.stringify(events));
+  }, [events]);
+
   const addEvent = () => {
-    if (newEvent.title.trim() === "") return;
+    if (newEvent.title.trim() === "") {
+      toast.error("Event title cannot be empty");
+      return;
+    }
 
     const event: Event = {
       id: Date.now().toString(),
@@ -45,10 +70,12 @@ const EventsPage = () => {
       time: "",
     });
     setIsDialogOpen(false);
+    toast.success("Event added successfully");
   };
 
   const deleteEvent = (id: string) => {
     setEvents(events.filter((event) => event.id !== id));
+    toast.success("Event deleted successfully");
   };
 
   const eventsForSelectedDate = events.filter(
