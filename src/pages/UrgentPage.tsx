@@ -93,7 +93,7 @@ const UrgentPage = () => {
               </div>
             ) : (
               <p className="text-center py-10 text-muted-foreground">
-                No urgent projects at the moment. Urgent projects from the Projects page will appear here.
+                No urgent projects at the moment. Projects marked as urgent or high priority will appear here.
               </p>
             )}
           </CardContent>

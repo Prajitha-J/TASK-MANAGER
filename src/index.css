@@ -14,19 +14,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    /* Burgundy primary color */
-    --primary: 0 25% 39%; /* #7C4A4A */
+    /* Malta primary color */
+    --primary: 26 20% 65%; /* #B7A398 */
     --primary-foreground: 0 0% 100%;
 
-    /* Light pink secondary color */
-    --secondary: 358 50% 82%; /* #E6BABB */
+    /* Light beige secondary color */
+    --secondary: 33 25% 90%; /* #E6DCD2 */
     --secondary-foreground: 0 0% 10%;
 
     --muted: 0 15% 95%;
     --muted-foreground: 0 0% 40%;
 
-    /* Slightly darker accent based on burgundy */
-    --accent: 0 30% 35%;
+    /* Slightly darker accent based on Malta */
+    --accent: 27 25% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,18 +34,18 @@
 
     --border: 0 20% 85%;
     --input: 0 20% 85%;
-    --ring: 0 25% 39%;
+    --ring: 26 20% 65%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 30% 98%;
     --sidebar-foreground: 0 0% 20%;
-    --sidebar-primary: 0 25% 39%;
+    --sidebar-primary: 26 20% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 358 20% 92%;
+    --sidebar-accent: 33 12% 92%;
     --sidebar-accent-foreground: 0 0% 10%;
     --sidebar-border: 0 20% 85%;
-    --sidebar-ring: 0 25% 39%;
+    --sidebar-ring: 26 20% 65%;
   }
 
   .dark {

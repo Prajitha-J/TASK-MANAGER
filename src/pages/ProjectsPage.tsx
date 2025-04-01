@@ -82,14 +82,6 @@ const ProjectsPage = () => {
 
   // Sort projects by deadline (closest first)
   const sortedProjects = [...projects].sort((a, b) => a.deadline.getTime() - b.deadline.getTime());
-  
-  // Get urgent projects for the UrgentPage
-  const urgentProjects = sortedProjects.filter(project => project.priority === 'urgent');
-  
-  // Save urgent projects to localStorage
-  useEffect(() => {
-    localStorage.setItem('urgentProjects', JSON.stringify(urgentProjects));
-  }, [urgentProjects]);
 
   const getPriorityColor = (priority: Project["priority"]) => {
     switch (priority) {
@@ -206,65 +198,143 @@ const ProjectsPage = () => {
         </Dialog>
       </div>
 
-      <div className="grid grid-cols-1 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <Card className="glass-effect">
+          <CardHeader>
+            <CardTitle>Project Details</CardTitle>
+            <CardDescription>Overview of your projects</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b pb-2">
+                <div>
+                  <h4 className="font-medium">Total Projects</h4>
+                  <p className="text-sm text-muted-foreground">All projects</p>
+                </div>
+                <div className="text-2xl font-bold">{projects.length}</div>
+              </div>
+              
+              <div className="flex items-center justify-between border-b pb-2">
+                <div>
+                  <h4 className="font-medium">Urgent Projects</h4>
+                  <p className="text-sm text-muted-foreground">High priority</p>
+                </div>
+                <div className="text-2xl font-bold text-red-500">
+                  {projects.filter(p => p.priority === "urgent" || p.priority === "high").length}
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="font-medium">Upcoming Deadlines</h4>
+                  <p className="text-sm text-muted-foreground">Due in 7 days</p>
+                </div>
+                <div className="text-2xl font-bold text-amber-500">
+                  {projects.filter(p => {
+                    const today = new Date();
+                    const sevenDaysLater = new Date();
+                    sevenDaysLater.setDate(today.getDate() + 7);
+                    return p.deadline >= today && p.deadline <= sevenDaysLater;
+                  }).length}
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        
         <Card className="glass-effect">
           <CardHeader>
             <CardTitle>Project Timeline</CardTitle>
-            <CardDescription>Your active projects and deadlines</CardDescription>
+            <CardDescription>Upcoming deadlines</CardDescription>
           </CardHeader>
           <CardContent>
             {sortedProjects.length > 0 ? (
-              <div className="space-y-4">
-                {sortedProjects.map((project) => (
-                  <div
-                    key={project.id}
-                    className="flex items-start space-x-4 p-4 bg-card/50 rounded-md hover-scale"
-                  >
-                    <div className="flex-shrink-0 flex flex-col items-center justify-center w-12 h-12 rounded-md bg-primary/10 text-primary">
-                      <Briefcase className="h-6 w-6" />
+              <div className="space-y-2">
+                {sortedProjects.slice(0, 3).map((project) => (
+                  <div key={project.id} className="flex items-center p-2 hover:bg-accent/10 rounded-md">
+                    <div className="mr-2 text-primary">
+                      <Briefcase className="h-5 w-5" />
                     </div>
-                    <div className="flex-1 min-w-0">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium">{project.title}</h4>
                       <div className="flex items-center gap-2">
-                        <h4 className="font-medium">{project.title}</h4>
-                        <Badge
-                          className={`${getPriorityColor(project.priority)} text-xs font-normal`}
-                        >
+                        <p className="text-xs text-muted-foreground">
+                          {new Date(project.deadline).toLocaleDateString()}
+                        </p>
+                        <Badge className={`${getPriorityColor(project.priority)} text-xs`}>
                           {project.priority}
                         </Badge>
                       </div>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        {project.description}
-                      </p>
-                      <div className="flex items-center gap-4 mt-2">
-                        <div className="flex items-center text-xs text-muted-foreground">
-                          <Calendar className="mr-1 h-3 w-3" />
-                          {project.deadline.toLocaleDateString()}
-                        </div>
-                        {project.team && (
-                          <div className="flex items-center text-xs text-muted-foreground">
-                            <Users className="mr-1 h-3 w-3" />
-                            {project.team}
-                          </div>
-                        )}
-                      </div>
                     </div>
-                    <button
-                      onClick={() => deleteProject(project.id)}
-                      className="text-muted-foreground hover:text-destructive transition-colors"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </button>
                   </div>
                 ))}
               </div>
             ) : (
-              <p className="text-center py-10 text-muted-foreground">
-                No projects added yet. Click "Add Project" to create your first project.
+              <p className="text-muted-foreground text-center py-8">
+                No projects added yet
               </p>
             )}
           </CardContent>
         </Card>
       </div>
+
+      <Card className="glass-effect">
+        <CardHeader>
+          <CardTitle>Project Timeline</CardTitle>
+          <CardDescription>Your active projects and deadlines</CardDescription>
+        </CardHeader>
+        <CardContent>
+          {sortedProjects.length > 0 ? (
+            <div className="space-y-4">
+              {sortedProjects.map((project) => (
+                <div
+                  key={project.id}
+                  className="flex items-start space-x-4 p-4 bg-card/50 rounded-md hover-scale"
+                >
+                  <div className="flex-shrink-0 flex flex-col items-center justify-center w-12 h-12 rounded-md bg-primary/10 text-primary">
+                    <Briefcase className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <h4 className="font-medium">{project.title}</h4>
+                      <Badge
+                        className={`${getPriorityColor(project.priority)} text-xs font-normal`}
+                      >
+                        {project.priority}
+                      </Badge>
+                    </div>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {project.description}
+                    </p>
+                    <div className="flex items-center gap-4 mt-2">
+                      <div className="flex items-center text-xs text-muted-foreground">
+                        <Calendar className="mr-1 h-3 w-3" />
+                        {project.deadline.toLocaleDateString()}
+                      </div>
+                      {project.team && (
+                        <div className="flex items-center text-xs text-muted-foreground">
+                          <Users className="mr-1 h-3 w-3" />
+                          {project.team}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => deleteProject(project.id)}
+                    className="text-muted-foreground hover:text-destructive transition-colors"
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-center py-10 text-muted-foreground">
+              No projects added yet. Click "Add Project" to create your first project.
+            </p>
+          )}
+        </CardContent>
+      </Card>
     </div>
   );
 };

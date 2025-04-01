@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Clock, Calendar, AlertCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
@@ -32,33 +31,25 @@ const DeadlinesPage = () => {
     }
   }, []);
 
-  // Sort events by date (closest first)
-  const sortedEvents = [...events].sort((a, b) => a.date.getTime() - b.date.getTime());
-  
-  // Filter only future events
-  const upcomingEvents = sortedEvents.filter(event => 
-    new Date(event.date).getTime() >= new Date().setHours(0, 0, 0, 0)
-  );
-
   return (
     <div className="container mx-auto">
       <header className="mb-8">
         <h1 className="text-4xl font-bold tracking-tight">Deadlines</h1>
         <p className="text-muted-foreground mt-1">
-          Track important deadlines and due dates
+          All events recorded from Event Reminders
         </p>
       </header>
 
       <div className="grid grid-cols-1 gap-6">
         <Card className="glass-effect">
           <CardHeader>
-            <CardTitle>Upcoming Deadlines</CardTitle>
-            <CardDescription>Your most urgent deadlines</CardDescription>
+            <CardTitle>All Deadlines</CardTitle>
+            <CardDescription>Events and their deadlines</CardDescription>
           </CardHeader>
           <CardContent>
-            {upcomingEvents.length > 0 ? (
+            {events.length > 0 ? (
               <div className="space-y-4">
-                {upcomingEvents.map((event) => (
+                {events.map((event) => (
                   <div
                     key={event.id}
                     className="flex items-start space-x-4 p-4 bg-card/50 rounded-md hover-scale"
@@ -97,7 +88,7 @@ const DeadlinesPage = () => {
               </div>
             ) : (
               <p className="text-center py-10 text-muted-foreground">
-                No upcoming deadlines. Add events in the Event Reminders page to see them here.
+                No deadlines found. Add events in the Event Reminders page to see them here.
               </p>
             )}
           </CardContent>
