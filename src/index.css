@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 0 30% 98%;
+    --background: 0 0% 100%;
     --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
@@ -15,37 +15,37 @@
     --popover-foreground: 0 0% 10%;
 
     /* Malta primary color */
-    --primary: 26 20% 65%; /* #B7A398 */
+    --primary: 20 20% 65%; /* #B7A398 */
     --primary-foreground: 0 0% 100%;
 
     /* Light beige secondary color */
-    --secondary: 33 25% 90%; /* #E6DCD2 */
+    --secondary: 20 20% 90%; /* #E6DDD5 */
     --secondary-foreground: 0 0% 10%;
 
-    --muted: 0 15% 95%;
+    --muted: 0 0% 95%;
     --muted-foreground: 0 0% 40%;
 
     /* Slightly darker accent based on Malta */
-    --accent: 27 25% 55%;
+    --accent: 20 25% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 20% 85%;
-    --input: 0 20% 85%;
-    --ring: 26 20% 65%;
+    --border: 20 15% 85%;
+    --input: 20 15% 85%;
+    --ring: 20 20% 65%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 30% 98%;
+    --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 20%;
-    --sidebar-primary: 26 20% 65%;
+    --sidebar-primary: 20 20% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 33 12% 92%;
+    --sidebar-accent: 20 12% 92%;
     --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 20% 85%;
-    --sidebar-ring: 26 20% 65%;
+    --sidebar-border: 20 15% 85%;
+    --sidebar-ring: 20 20% 65%;
   }
 
   .dark {
@@ -104,7 +104,7 @@
   }
   
   .dark .glass-effect {
-    @apply bg-black/20 backdrop-blur-lg border border-cocoaBrown/30 rounded-2xl;
+    @apply bg-black/20 backdrop-blur-lg border border-primary/30 rounded-2xl;
   }
 
   .hover-scale {

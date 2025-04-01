@@ -32,8 +32,7 @@ const ProfilePage = () => {
       if (userData.phone) setPhone(userData.phone);
       if (userData.dob) setDob(userData.dob);
       
-      // Only redirect if profile is already complete AND the user is NOT explicitly visiting the profile page
-      // This prevents the redirect if they intentionally navigated to /profile
+      // Only redirect if profile is already complete AND we're not already on the profile page
       if (userData.profileComplete && window.location.pathname !== "/profile") {
         navigate("/mode-selection");
       }
@@ -61,12 +60,12 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/30 to-background p-4">
       <div className="absolute top-4 right-4">
         <Button 
           variant="ghost" 
           size="icon" 
-          className="rounded-full"
+          className="rounded-full hover:bg-primary/20"
           onClick={toggleTheme}
           aria-label="Toggle theme"
         >
@@ -74,7 +73,7 @@ const ProfilePage = () => {
         </Button>
       </div>
       <div className="w-full max-w-md mx-auto section-fade-in">
-        <Card className="glass-effect overflow-hidden border-secondary border-2">
+        <Card className="glass-effect overflow-hidden border-primary/30 border-2">
           <CardHeader className="space-y-1 bg-gradient-to-r from-primary/30 to-secondary/50">
             <CardTitle className="text-3xl font-bold tracking-tight text-center">Complete Your Profile</CardTitle>
             <CardDescription className="text-muted-foreground text-center">
@@ -130,7 +129,7 @@ const ProfilePage = () => {
               
               <Button 
                 type="submit" 
-                className="w-full button-effect bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90"
+                className="w-full button-effect bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
                 disabled={loading}
               >
                 Continue

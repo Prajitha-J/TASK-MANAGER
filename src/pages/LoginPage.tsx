@@ -65,7 +65,7 @@ const LoginPage = () => {
         </Button>
       </div>
       <div className="w-full max-w-md mx-auto section-fade-in">
-        <Card className="glass-effect overflow-hidden border-secondary border-2">
+        <Card className="glass-effect overflow-hidden border-primary/30 border-2">
           <CardHeader className="space-y-1 text-center bg-gradient-to-r from-primary/30 to-secondary/50 pb-6">
             <CardTitle className="text-3xl font-bold tracking-tight">
               {isLoginMode ? "Welcome Back" : "Create Account"}
@@ -106,7 +106,7 @@ const LoginPage = () => {
               </div>
               <Button 
                 type="submit" 
-                className="w-full button-effect bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90" 
+                className="w-full button-effect bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90" 
                 disabled={loading}
               >
                 <LogIn className="mr-2 h-4 w-4" />
