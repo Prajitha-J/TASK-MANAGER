@@ -34,15 +34,19 @@ const EventsPage = () => {
   useEffect(() => {
     const savedEvents = localStorage.getItem('events');
     if (savedEvents) {
-      const parsedEvents = JSON.parse(savedEvents);
-      
-      // Convert string dates back to Date objects
-      const formattedEvents = parsedEvents.map((event: any) => ({
-        ...event,
-        date: new Date(event.date)
-      }));
-      
-      setEvents(formattedEvents);
+      try {
+        const parsedEvents = JSON.parse(savedEvents);
+        
+        // Convert string dates back to Date objects
+        const formattedEvents = parsedEvents.map((event: any) => ({
+          ...event,
+          date: new Date(event.date)
+        }));
+        
+        setEvents(formattedEvents);
+      } catch (error) {
+        console.error("Error parsing events:", error);
+      }
     }
   }, []);
 
@@ -51,7 +55,9 @@ const EventsPage = () => {
     localStorage.setItem('events', JSON.stringify(events));
   }, [events]);
 
-  const addEvent = () => {
+  const addEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault(); // Prevent form submission and page refresh
+    
     if (newEvent.title.trim() === "") {
       toast.error("Event title cannot be empty");
       return;
@@ -113,14 +119,14 @@ const EventsPage = () => {
               Add Event
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[425px] overflow-y-auto max-h-[90vh]">
             <DialogHeader>
               <DialogTitle>Add New Event</DialogTitle>
               <DialogDescription>
                 Create a new event with reminders.
               </DialogDescription>
             </DialogHeader>
-            <div className="space-y-4 py-4">
+            <div className="space-y-4 py-4 event-form-container">
               <div className="space-y-2">
                 <Label htmlFor="title">Title</Label>
                 <Input
