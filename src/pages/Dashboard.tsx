@@ -1,10 +1,9 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CalendarDays, CheckCircle2, Clock, ClipboardList, AlertTriangle } from "lucide-react";
+import { CalendarDays, CheckCircle2, Clock, ClipboardList, AlertTriangle, Calendar as CalendarIcon } from "lucide-react";
 import { useTasks } from "../hooks/useTasks";
 import { Badge } from "@/components/ui/badge";
 
@@ -23,13 +22,11 @@ const Dashboard = () => {
   const [urgentProjects, setUrgentProjects] = useState<any[]>([]);
   const [events, setEvents] = useState<Event[]>([]);
   
-  // Load urgent projects from localStorage
   useEffect(() => {
     const savedProjects = localStorage.getItem('projects');
     if (savedProjects) {
       const parsedProjects = JSON.parse(savedProjects);
       
-      // Convert string dates back to Date objects and filter urgent ones
       const formattedProjects = parsedProjects
         .map((project: any) => ({
           ...project,
@@ -40,12 +37,10 @@ const Dashboard = () => {
       setUrgentProjects(formattedProjects);
     }
     
-    // Load events from localStorage
     const savedEvents = localStorage.getItem('events');
     if (savedEvents) {
       const parsedEvents = JSON.parse(savedEvents);
       
-      // Convert string dates back to Date objects
       const formattedEvents = parsedEvents.map((event: any) => ({
         ...event,
         date: new Date(event.date)
@@ -55,18 +50,15 @@ const Dashboard = () => {
     }
   }, []);
   
-  // Format the mode for display
   const formatMode = (mode: string | undefined) => {
     if (!mode) return "";
     return mode.charAt(0).toUpperCase() + mode.slice(1);
   };
 
-  // Count tasks by status
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter(task => task.status === "done").length;
   const upcomingTasks = tasks.filter(task => task.status === "todo" || task.status === "inProgress").length;
   
-  // Calculate urgent tasks (high priority tasks)
   const urgentTasks = tasks.filter(task => task.priority === "high").length;
 
   return (
@@ -194,7 +186,7 @@ const Dashboard = () => {
                     {events.slice(0, 3).map((event) => (
                       <div key={event.id} className="flex items-center p-2 hover:bg-accent/10 rounded-md">
                         <div className="mr-2 text-primary">
-                          <Calendar className="h-5 w-5" />
+                          <CalendarIcon className="h-5 w-5" />
                         </div>
                         <div>
                           <h4 className="text-sm font-medium">{event.title}</h4>
@@ -245,7 +237,7 @@ const Dashboard = () => {
                   {events.slice(0, 3).map((event) => (
                     <div key={event.id} className="flex items-center p-2 hover:bg-accent/10 rounded-md">
                       <div className="mr-2 text-primary">
-                        <Calendar className="h-5 w-5" />
+                        <CalendarIcon className="h-5 w-5" />
                       </div>
                       <div>
                         <h4 className="text-sm font-medium">{event.title}</h4>

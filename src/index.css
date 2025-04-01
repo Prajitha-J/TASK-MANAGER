@@ -120,4 +120,20 @@
     animation-fill-mode: forwards;
     animation-duration: 0.7s;
   }
+
+  /* Ensure dialog and popover content is scrollable */
+  .dialog-content, 
+  .popover-content {
+    @apply max-h-[80vh] overflow-y-auto;
+  }
+  
+  /* Fix for calendar pointer events */
+  .rdp {
+    @apply pointer-events-auto;
+  }
+  
+  /* Make event forms scrollable in small screens */
+  .event-form-container {
+    @apply max-h-[75vh] overflow-y-auto px-2;
+  }
 }
