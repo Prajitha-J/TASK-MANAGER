@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 45 100% 98%;
+    --background: 0 30% 98%;
     --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
@@ -14,35 +14,38 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 25 100% 70%;
-    --primary-foreground: 0 0% 10%;
+    /* Burgundy primary color */
+    --primary: 0 25% 39%; /* #7C4A4A */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 45 100% 92%;
+    /* Light pink secondary color */
+    --secondary: 358 50% 82%; /* #E6BABB */
     --secondary-foreground: 0 0% 10%;
 
-    --muted: 45 10% 95%;
+    --muted: 0 15% 95%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 25 100% 75%;
-    --accent-foreground: 0 0% 10%;
+    /* Slightly darker accent based on burgundy */
+    --accent: 0 30% 35%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 25 20% 85%;
-    --input: 25 20% 85%;
-    --ring: 25 100% 70%;
+    --border: 0 20% 85%;
+    --input: 0 20% 85%;
+    --ring: 0 25% 39%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 45 100% 98%;
+    --sidebar-background: 0 30% 98%;
     --sidebar-foreground: 0 0% 20%;
-    --sidebar-primary: 25 100% 70%;
-    --sidebar-primary-foreground: 0 0% 10%;
-    --sidebar-accent: 45 50% 96%;
+    --sidebar-primary: 0 25% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 358 20% 92%;
     --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 25 20% 85%;
-    --sidebar-ring: 25 100% 70%;
+    --sidebar-border: 0 20% 85%;
+    --sidebar-ring: 0 25% 39%;
   }
 
   .dark {
