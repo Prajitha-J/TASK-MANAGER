@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,42 +46,43 @@
   }
 
   .dark {
-    --background: 20 10% 15%;
+    /* Updated dark brown/maroon theme based on screenshots */
+    --background: 10 25% 15%;
     --foreground: 60 30% 96%;
 
-    --card: 20 10% 10%;
+    --card: 10 25% 10%;
     --card-foreground: 60 30% 96%;
 
-    --popover: 20 10% 10%;
+    --popover: 10 25% 10%;
     --popover-foreground: 60 30% 96%;
 
-    --primary: 10 30% 20%;
+    --primary: 10 30% 25%;
     --primary-foreground: 60 30% 96%;
 
-    --secondary: 20 10% 20%;
+    --secondary: 10 15% 20%;
     --secondary-foreground: 60 30% 96%;
 
-    --muted: 20 10% 20%;
+    --muted: 10 15% 20%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 10 30% 20%;
+    --accent: 10 25% 30%;
     --accent-foreground: 60 30% 96%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 60 30% 96%;
 
-    --border: 20 15% 25%;
-    --input: 20 15% 25%;
-    --ring: 10 30% 20%;
+    --border: 10 15% 25%;
+    --input: 10 15% 25%;
+    --ring: 10 25% 30%;
 
     --sidebar-background: 10 30% 15%;
     --sidebar-foreground: 60 30% 96%;
-    --sidebar-primary: 10 30% 20%;
+    --sidebar-primary: 10 30% 25%;
     --sidebar-primary-foreground: 60 30% 96%;
     --sidebar-accent: 10 10% 20%;
     --sidebar-accent-foreground: 60 30% 96%;
     --sidebar-border: 10 20% 25%;
-    --sidebar-ring: 10 30% 20%;
+    --sidebar-ring: 10 30% 25%;
   }
 }
 
