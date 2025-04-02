@@ -76,11 +76,11 @@ const ProfilePage = () => {
         <Card className="border-primary/40 border overflow-hidden shadow-lg">
           <CardHeader className="space-y-1 bg-gradient-to-r from-primary/90 to-primary/70">
             <CardTitle className="text-3xl font-bold tracking-tight text-center text-white">Complete Your Profile</CardTitle>
-            <CardDescription className="text-white/80 text-center">
+            <CardDescription className="text-white/90 text-center">
               Please provide your personal information
             </CardDescription>
           </CardHeader>
-          <CardContent className="mt-6 bg-white">
+          <CardContent className="mt-6">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-foreground/80 font-medium">Full Name</Label>
@@ -129,7 +129,7 @@ const ProfilePage = () => {
               
               <Button 
                 type="submit" 
-                className="w-full button-effect bg-primary hover:bg-primary/90 text-white"
+                className="w-full button-effect bg-primary hover:bg-primary/90 text-primary-foreground"
                 disabled={loading}
               >
                 Continue

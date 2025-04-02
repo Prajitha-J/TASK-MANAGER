@@ -63,11 +63,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors
+				// Custom colors for the tan/beige and brown themes
 				tanBeige: '#D2B48C',
-				creamWhite: '#FFFDD0',
-				cocoaBrown: '#3E2723',
-				charcoalGray: '#2E2A27',
+				sandBeige: '#E8DCC4',
+				darkBrown: '#3E2723',
+				mediumBrown: '#5D4037',
+				charcoalBrown: '#2E2A27',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

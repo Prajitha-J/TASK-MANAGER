@@ -70,13 +70,13 @@ const LoginPage = () => {
             <CardTitle className="text-3xl font-bold tracking-tight text-white">
               {isLoginMode ? "TASK MANAGER" : "Create Account"}
             </CardTitle>
-            <CardDescription className="text-white/80">
+            <CardDescription className="text-white/90">
               {isLoginMode
                 ? "Enter your credentials to access your account"
                 : "Fill in your details to create a new account"}
             </CardDescription>
           </CardHeader>
-          <CardContent className="mt-6 bg-white">
+          <CardContent className="mt-6">
             <form onSubmit={handleAuth} className="space-y-4">
               <div className="space-y-2">
                 <div className="relative">
@@ -106,7 +106,7 @@ const LoginPage = () => {
               </div>
               <Button 
                 type="submit" 
-                className="w-full button-effect bg-primary hover:bg-primary/90 text-white" 
+                className="w-full button-effect bg-primary hover:bg-primary/90 text-primary-foreground" 
                 disabled={loading}
               >
                 <LogIn className="mr-2 h-4 w-4" />
@@ -133,7 +133,7 @@ const LoginPage = () => {
               Google
             </Button>
           </CardContent>
-          <CardFooter className="flex justify-center bg-white pb-6">
+          <CardFooter className="flex justify-center pb-6">
             <Button
               variant="link"
               className="text-sm text-primary hover:text-primary/80"
