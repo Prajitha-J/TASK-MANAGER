@@ -24,7 +24,7 @@ const ModeSelectionPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/30 to-background p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/40 to-background p-4">
       <div className="absolute top-4 right-4">
         <Button 
           variant="ghost" 
@@ -37,14 +37,14 @@ const ModeSelectionPage = () => {
         </Button>
       </div>
       <div className="container max-w-4xl section-fade-in">
-        <h1 className="text-4xl font-bold text-center mb-8">Choose Your Experience</h1>
+        <h1 className="text-4xl font-bold text-center mb-8 text-primary">Choose Your Experience</h1>
         <p className="text-center text-muted-foreground mb-12">
           Select the mode that best fits your needs for task management
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="hover-scale glass-effect border-primary/30 border">
-            <CardHeader className="pb-2">
+          <Card className="hover-scale border-primary/30 border shadow-md">
+            <CardHeader className="pb-2 bg-gradient-to-b from-primary/20 to-white">
               <div className="w-full flex justify-center mb-2">
                 <div className="p-3 rounded-full bg-primary/20">
                   <BookOpen className="h-10 w-10 text-primary" />
@@ -70,7 +70,7 @@ const ModeSelectionPage = () => {
             </CardContent>
             <CardFooter>
               <Button 
-                className="w-full button-effect bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90" 
+                className="w-full button-effect bg-primary hover:bg-primary/90 text-white" 
                 onClick={() => handleModeSelection("student")}
               >
                 Select Student Mode
@@ -78,8 +78,8 @@ const ModeSelectionPage = () => {
             </CardFooter>
           </Card>
           
-          <Card className="hover-scale glass-effect border-primary/30 border">
-            <CardHeader className="pb-2">
+          <Card className="hover-scale border-primary/30 border shadow-md">
+            <CardHeader className="pb-2 bg-gradient-to-b from-primary/20 to-white">
               <div className="w-full flex justify-center mb-2">
                 <div className="p-3 rounded-full bg-primary/20">
                   <Briefcase className="h-10 w-10 text-primary" />
@@ -105,7 +105,7 @@ const ModeSelectionPage = () => {
             </CardContent>
             <CardFooter>
               <Button 
-                className="w-full button-effect bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90" 
+                className="w-full button-effect bg-primary hover:bg-primary/90 text-white" 
                 onClick={() => handleModeSelection("employee")}
               >
                 Select Employee Mode
@@ -113,8 +113,8 @@ const ModeSelectionPage = () => {
             </CardFooter>
           </Card>
           
-          <Card className="hover-scale glass-effect border-primary/30 border">
-            <CardHeader className="pb-2">
+          <Card className="hover-scale border-primary/30 border shadow-md">
+            <CardHeader className="pb-2 bg-gradient-to-b from-primary/20 to-white">
               <div className="w-full flex justify-center mb-2">
                 <div className="p-3 rounded-full bg-primary/20">
                   <Home className="h-10 w-10 text-primary" />
@@ -140,7 +140,7 @@ const ModeSelectionPage = () => {
             </CardContent>
             <CardFooter>
               <Button 
-                className="w-full button-effect bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90" 
+                className="w-full button-effect bg-primary hover:bg-primary/90 text-white" 
                 onClick={() => handleModeSelection("personal")}
               >
                 Select Personal Mode

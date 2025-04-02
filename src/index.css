@@ -14,19 +14,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    /* Malta primary color */
-    --primary: 20 20% 65%; /* #B7A398 */
+    /* Task Manager brown color theme from screenshot */
+    --primary: 15 25% 65%; /* #b7937f - brown shade */
     --primary-foreground: 0 0% 100%;
 
     /* Light beige secondary color */
-    --secondary: 20 20% 90%; /* #E6DDD5 */
+    --secondary: 30 25% 90%; /* #eee6dd - light beige */
     --secondary-foreground: 0 0% 10%;
 
     --muted: 0 0% 95%;
     --muted-foreground: 0 0% 40%;
 
-    /* Slightly darker accent based on Malta */
-    --accent: 20 25% 55%;
+    /* Darker brown accent */
+    --accent: 15 30% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,18 +34,18 @@
 
     --border: 20 15% 85%;
     --input: 20 15% 85%;
-    --ring: 20 20% 65%;
+    --ring: 15 25% 65%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 0 0% 20%;
-    --sidebar-primary: 20 20% 65%;
+    --sidebar-background: 15 25% 40%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 15 25% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 20 12% 92%;
+    --sidebar-accent: 15 12% 92%;
     --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 20 15% 85%;
-    --sidebar-ring: 20 20% 65%;
+    --sidebar-border: 15 25% 45%;
+    --sidebar-ring: 15 25% 65%;
   }
 
   .dark {
@@ -100,11 +100,11 @@
 
 @layer components {
   .glass-effect {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl;
+    @apply bg-white/10 backdrop-blur-lg border border-primary/30 rounded-lg;
   }
   
   .dark .glass-effect {
-    @apply bg-black/20 backdrop-blur-lg border border-primary/30 rounded-2xl;
+    @apply bg-black/20 backdrop-blur-lg border border-primary/30 rounded-lg;
   }
 
   .hover-scale {

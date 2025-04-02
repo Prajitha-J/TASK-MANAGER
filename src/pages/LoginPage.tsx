@@ -52,7 +52,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/30 to-background p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/40 to-background p-4">
       <div className="absolute top-4 right-4">
         <Button 
           variant="ghost" 
@@ -65,18 +65,18 @@ const LoginPage = () => {
         </Button>
       </div>
       <div className="w-full max-w-md mx-auto section-fade-in">
-        <Card className="glass-effect overflow-hidden border-primary/30 border-2">
-          <CardHeader className="space-y-1 text-center bg-gradient-to-r from-primary/30 to-secondary/50 pb-6">
-            <CardTitle className="text-3xl font-bold tracking-tight">
-              {isLoginMode ? "Welcome Back" : "Create Account"}
+        <Card className="border-primary/40 border overflow-hidden shadow-lg">
+          <CardHeader className="space-y-1 text-center bg-gradient-to-r from-primary/90 to-primary/70 pb-6">
+            <CardTitle className="text-3xl font-bold tracking-tight text-white">
+              {isLoginMode ? "TASK MANAGER" : "Create Account"}
             </CardTitle>
-            <CardDescription className="text-muted-foreground">
+            <CardDescription className="text-white/80">
               {isLoginMode
                 ? "Enter your credentials to access your account"
                 : "Fill in your details to create a new account"}
             </CardDescription>
           </CardHeader>
-          <CardContent className="mt-4">
+          <CardContent className="mt-6 bg-white">
             <form onSubmit={handleAuth} className="space-y-4">
               <div className="space-y-2">
                 <div className="relative">
@@ -106,7 +106,7 @@ const LoginPage = () => {
               </div>
               <Button 
                 type="submit" 
-                className="w-full button-effect bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90" 
+                className="w-full button-effect bg-primary hover:bg-primary/90 text-white" 
                 disabled={loading}
               >
                 <LogIn className="mr-2 h-4 w-4" />
@@ -133,7 +133,7 @@ const LoginPage = () => {
               Google
             </Button>
           </CardContent>
-          <CardFooter className="flex justify-center">
+          <CardFooter className="flex justify-center bg-white pb-6">
             <Button
               variant="link"
               className="text-sm text-primary hover:text-primary/80"
