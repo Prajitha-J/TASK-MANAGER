@@ -63,12 +63,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for the tan/beige and brown themes
-				tanBeige: '#D2B48C',
-				sandBeige: '#E8DCC4',
-				darkBrown: '#3E2723',
-				mediumBrown: '#5D4037',
-				charcoalBrown: '#2E2A27',
+				// Custom colors matching the provided theme
+				lightBg: '#fcf9f7',       // Stark white
+				lightCard: '#e6d5c8',     // Soft malta/beige
+				lightButton: '#7C4A4A',   // Muted earthy wine
+				lightText: '#3c2b2b',     // Dark brown/black
+				darkBg: '#1a1311',        // Deep brownish-black
+				darkCard: '#2e1e1e',      // Dark chocolate brown
+				darkButton: '#693c36',    // Rich reddish-brown
+				darkText: '#f1e5d1',      // Soft beige/off-white
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
