@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,84 +6,84 @@
 @layer base {
   :root {
     /* Light mode - new theme */
-    --background: 60 93% 90%; /* #FFFDD0 - Cream White */
-    --foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --background: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
 
-    --card: 43 47% 69%; /* #D2B48C - Tan Beige */
-    --card-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --card: 27 40% 64%; /* #C4A484 - Vintage Mocha */
+    --card-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
 
-    --popover: 43 47% 69%; /* #D2B48C - Tan Beige */
-    --popover-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --popover: 27 40% 64%; /* #C4A484 - Vintage Mocha */
+    --popover-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
 
     --primary: 43 47% 69%; /* #D2B48C - Tan Beige */
-    --primary-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --primary-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
 
-    --secondary: 43 47% 79%; /* Lighter version of Tan Beige */
-    --secondary-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --secondary: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --secondary-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
 
-    --muted: 43 47% 85%; /* Even lighter version of Tan Beige */
-    --muted-foreground: 15 28% 30%; /* Lighter version of Deep Cocoa Brown */
+    --muted: 43 20% 85%; /* Lighter version of Tan Beige */
+    --muted-foreground: 60 4% 35%; /* Lighter version of Ebony Curl */
 
-    --accent: 43 47% 60%; /* Darker version of Tan Beige */
-    --accent-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --accent: 36 46% 71%; /* #D7B790 - Dusty Caramel */
+    --accent-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 60 93% 90%;
 
-    --border: 43 47% 75%;
-    --input: 43 47% 75%;
+    --border: 43 30% 75%;
+    --input: 43 30% 75%;
     --ring: 43 47% 69%; /* #D2B48C - Tan Beige */
 
     --radius: 0.5rem;
 
     --sidebar-background: 60 93% 90%; /* #FFFDD0 - Cream White */
-    --sidebar-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --sidebar-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
     --sidebar-primary: 43 47% 69%; /* #D2B48C - Tan Beige */
-    --sidebar-primary-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
-    --sidebar-accent: 43 47% 79%;
-    --sidebar-accent-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
-    --sidebar-border: 43 47% 75%;
+    --sidebar-primary-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
+    --sidebar-accent: 36 46% 71%; /* #D7B790 - Dusty Caramel */
+    --sidebar-accent-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
+    --sidebar-border: 43 30% 75%;
     --sidebar-ring: 43 47% 69%; /* #D2B48C - Tan Beige */
   }
 
   .dark {
     /* Dark mode - new theme */
     --background: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
-    --foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
 
-    --card: 24 8% 17%; /* #2E2A27 - Warm Charcoal Gray */
-    --card-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --card: 20 18% 31%; /* #5C4B40 - Muted Vintage Mocha */
+    --card-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
 
-    --popover: 24 8% 17%; /* #2E2A27 - Warm Charcoal Gray */
-    --popover-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --popover: 20 18% 31%; /* #5C4B40 - Muted Vintage Mocha */
+    --popover-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
 
-    --primary: 43 47% 69%; /* #D2B48C - Tan Beige */
-    --primary-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --primary: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --primary-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
 
-    --secondary: 24 8% 22%; /* Slightly lighter than Warm Charcoal Gray */
-    --secondary-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --secondary: 24 8% 17%; /* #2E2A27 - Warm Charcoal Gray */
+    --secondary-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
 
     --muted: 24 8% 22%; /* Slightly lighter than Warm Charcoal Gray */
-    --muted-foreground: 60 93% 70%; /* Slightly dimmer Cream White */
+    --muted-foreground: 40 30% 85%; /* Slightly dimmer Morning Glow */
 
-    --accent: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --accent: 33 32% 76%; /* #E0C0A5 - Brighter Dusty Caramel */
     --accent-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --destructive-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
 
     --border: 24 8% 25%;
     --input: 24 8% 25%;
-    --ring: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --ring: 33 32% 76%; /* #E0C0A5 - Brighter Dusty Caramel */
 
     --sidebar-background: 24 8% 17%; /* #2E2A27 - Warm Charcoal Gray */
-    --sidebar-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
-    --sidebar-primary: 43 47% 69%; /* #D2B48C - Tan Beige */
-    --sidebar-primary-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
-    --sidebar-accent: 24 8% 22%;
-    --sidebar-accent-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --sidebar-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
+    --sidebar-primary: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --sidebar-primary-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
+    --sidebar-accent: 33 32% 76%; /* #E0C0A5 - Brighter Dusty Caramel */
+    --sidebar-accent-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
     --sidebar-border: 24 8% 25%;
-    --sidebar-ring: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --sidebar-ring: 33 32% 76%; /* #E0C0A5 - Brighter Dusty Caramel */
   }
 }
 
@@ -93,7 +94,17 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary)));
   }
+
+  .dark body {
+    background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary)));
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @layer components {
@@ -114,9 +125,12 @@
   }
   
   .section-fade-in {
-    @apply opacity-0 animate-fade-in;
-    animation-fill-mode: forwards;
-    animation-duration: 0.7s;
+    @apply opacity-0;
+    animation: fadeIn 0.7s ease-in-out forwards;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
   }
 
   .dialog-content, 
@@ -130,5 +144,13 @@
   
   .event-form-container {
     @apply max-h-[75vh] overflow-y-auto px-2;
+  }
+
+  .card {
+    background: linear-gradient(to bottom right, hsl(var(--card)), hsl(20, 50%, 70%));
+  }
+
+  .dark .card {
+    background: linear-gradient(to bottom right, hsl(var(--card)), hsl(10, 18%, 37%));
   }
 }

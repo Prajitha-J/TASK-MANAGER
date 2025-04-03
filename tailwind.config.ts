@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -66,11 +67,19 @@ export default {
 				lightBg: '#FFFDD0',      // Cream White
 				lightCard: '#D2B48C',    // Tan Beige
 				lightButton: '#D2B48C',  // Tan Beige
-				lightText: '#3E2723',    // Deep Cocoa Brown
+				lightText: '#3E3E38',    // Ebony Curl
 				darkBg: '#3E2723',       // Deep Cocoa Brown
 				darkCard: '#2E2A27',     // Warm Charcoal Gray
 				darkButton: '#D2B48C',   // Tan Beige
-				darkText: '#FFFDD0',     // Cream White
+				darkText: '#F8F3E9',     // Morning Glow
+				// Card colors
+				vintageCard: '#C4A484',  // Vintage Mocha
+				rusticCard: '#E5B7A5',   // Rustic Clay
+				darkVintage: '#5C4B40',  // Muted Vintage Mocha
+				darkRustic: '#6B544C',   // Darker Rustic Clay
+				// Accent colors
+				dustyCaramel: '#D7B790', // Dusty Caramel for light mode
+				brightCaramel: '#E0C0A5' // Brighter for dark mode
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
