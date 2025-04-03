@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,15 +62,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Original color theme
-				lightBg: '#fcf9f7',       // Stark white background
-				lightCard: '#e6babb',     // Soft pink/beige
-				lightButton: '#7C4A4A',   // Muted earthy wine
-				lightText: '#3c2b2b',     // Dark brown/black
-				darkBg: '#3E2723',        // Deep cocoa brown
-				darkCard: '#2E2A27',      // Warm charcoal gray
-				darkButton: '#693c36',    // Rich reddish-brown
-				darkText: '#f1e5d1',      // Soft beige/off-white
+				// New color theme
+				lightBg: '#FFFDD0',      // Cream White
+				lightCard: '#D2B48C',    // Tan Beige
+				lightButton: '#D2B48C',  // Tan Beige
+				lightText: '#3E2723',    // Deep Cocoa Brown
+				darkBg: '#3E2723',       // Deep Cocoa Brown
+				darkCard: '#2E2A27',     // Warm Charcoal Gray
+				darkButton: '#D2B48C',   // Tan Beige
+				darkText: '#FFFDD0',     // Cream White
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

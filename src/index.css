@@ -1,89 +1,88 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Light mode - original theme */
-    --background: 350 20% 97%; /* #fcf9f7 - Stark white */
-    --foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
+    /* Light mode - new theme */
+    --background: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
 
-    --card: 358 33% 82%; /* #e6babb - Soft pink/beige */
-    --card-foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
+    --card: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --card-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
 
-    --popover: 358 33% 82%; /* #e6babb - Soft pink/beige */
-    --popover-foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
+    --popover: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --popover-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
 
-    --primary: 0 25% 39%; /* #7C4A4A - Muted earthy wine */
-    --primary-foreground: 350 20% 97%; /* #fcf9f7 - Stark white */
+    --primary: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --primary-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
 
-    --secondary: 358 20% 90%; /* Lighter version of card color */
-    --secondary-foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
+    --secondary: 43 47% 79%; /* Lighter version of Tan Beige */
+    --secondary-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
 
-    --muted: 358 20% 90%; /* Lighter version of card color */
-    --muted-foreground: 20 16% 45%; /* Lighter version of foreground */
+    --muted: 43 47% 85%; /* Even lighter version of Tan Beige */
+    --muted-foreground: 15 28% 30%; /* Lighter version of Deep Cocoa Brown */
 
-    --accent: 0 25% 49%; /* Slightly lighter primary */
-    --accent-foreground: 350 20% 97%; /* #fcf9f7 - Stark white */
+    --accent: 43 47% 60%; /* Darker version of Tan Beige */
+    --accent-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 60 93% 90%;
 
-    --border: 358 20% 80%;
-    --input: 358 20% 80%;
-    --ring: 0 25% 39%; /* #7C4A4A - Muted earthy wine */
+    --border: 43 47% 75%;
+    --input: 43 47% 75%;
+    --ring: 43 47% 69%; /* #D2B48C - Tan Beige */
 
     --radius: 0.5rem;
 
-    --sidebar-background: 350 20% 97%; /* #fcf9f7 - Stark white */
-    --sidebar-foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
-    --sidebar-primary: 0 25% 39%; /* #7C4A4A - Muted earthy wine */
-    --sidebar-primary-foreground: 350 20% 97%; /* #fcf9f7 - Stark white */
-    --sidebar-accent: 358 20% 90%;
-    --sidebar-accent-foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
-    --sidebar-border: 358 20% 80%;
-    --sidebar-ring: 0 25% 39%; /* #7C4A4A - Muted earthy wine */
+    --sidebar-background: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --sidebar-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --sidebar-primary: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --sidebar-primary-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --sidebar-accent: 43 47% 79%;
+    --sidebar-accent-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --sidebar-border: 43 47% 75%;
+    --sidebar-ring: 43 47% 69%; /* #D2B48C - Tan Beige */
   }
 
   .dark {
-    /* Dark mode - original theme */
-    --background: 8 27% 20%; /* #3E2723 - Deep cocoa brown */
-    --foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
+    /* Dark mode - new theme */
+    --background: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
 
-    --card: 24 15% 17%; /* #2E2A27 - Warm charcoal gray */
-    --card-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
+    --card: 24 8% 17%; /* #2E2A27 - Warm Charcoal Gray */
+    --card-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
 
-    --popover: 24 15% 17%; /* #2E2A27 - Warm charcoal gray */
-    --popover-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
+    --popover: 24 8% 17%; /* #2E2A27 - Warm Charcoal Gray */
+    --popover-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
 
-    --primary: 6 32% 31%; /* #693c36 - Rich reddish-brown */
-    --primary-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
+    --primary: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --primary-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
 
-    --secondary: 24 15% 22%; /* Slightly lighter than card */
-    --secondary-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
+    --secondary: 24 8% 22%; /* Slightly lighter than Warm Charcoal Gray */
+    --secondary-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
 
-    --muted: 24 15% 22%; /* Slightly lighter than card */
-    --muted-foreground: 39 40% 70%; /* Slightly dimmer foreground */
+    --muted: 24 8% 22%; /* Slightly lighter than Warm Charcoal Gray */
+    --muted-foreground: 60 93% 70%; /* Slightly dimmer Cream White */
 
-    --accent: 6 32% 36%; /* Slightly lighter primary */
-    --accent-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
+    --accent: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --accent-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
+    --destructive-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
 
-    --border: 24 15% 25%;
-    --input: 24 15% 25%;
-    --ring: 6 32% 31%; /* #693c36 - Rich reddish-brown */
+    --border: 24 8% 25%;
+    --input: 24 8% 25%;
+    --ring: 43 47% 69%; /* #D2B48C - Tan Beige */
 
-    --sidebar-background: 24 15% 17%; /* #2E2A27 - Warm charcoal gray */
-    --sidebar-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
-    --sidebar-primary: 6 32% 31%; /* #693c36 - Rich reddish-brown */
-    --sidebar-primary-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
-    --sidebar-accent: 24 10% 20%;
-    --sidebar-accent-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
-    --sidebar-border: 24 15% 25%;
-    --sidebar-ring: 6 32% 31%; /* #693c36 - Rich reddish-brown */
+    --sidebar-background: 24 8% 17%; /* #2E2A27 - Warm Charcoal Gray */
+    --sidebar-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --sidebar-primary: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --sidebar-primary-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --sidebar-accent: 24 8% 22%;
+    --sidebar-accent-foreground: 60 93% 90%; /* #FFFDD0 - Cream White */
+    --sidebar-border: 24 8% 25%;
+    --sidebar-ring: 43 47% 69%; /* #D2B48C - Tan Beige */
   }
 }
 

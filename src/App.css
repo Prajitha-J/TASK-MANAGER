@@ -13,10 +13,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #7C4A4A);
+  filter: drop-shadow(0 0 2em #D2B48C);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #7C4A4A);
+  filter: drop-shadow(0 0 2em #D2B48C);
 }
 
 @keyframes logo-spin {
@@ -44,7 +44,7 @@
 
 /* Custom background gradients */
 .light-gradient {
-  background: linear-gradient(to bottom right, #fcf9f7, #e6babb, #fcf9f7);
+  background: linear-gradient(to bottom right, #FFFDD0, #D2B48C, #FFFDD0);
 }
 
 .dark-gradient {
