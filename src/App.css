@@ -42,11 +42,72 @@
   color: #888;
 }
 
-/* Custom background gradients */
+/* Custom background gradients - Light Theme */
 .light-gradient {
   background: linear-gradient(to bottom right, #FFFDD0, #D2B48C, #FFFDD0);
 }
 
+/* Custom background gradients - Dark Theme (Notion-inspired) */
 .dark-gradient {
-  background: linear-gradient(to bottom right, #3E2723, #2E2A27, #3E2723);
+  background: linear-gradient(to bottom, #18181B, #1E1E22);
+}
+
+/* Notion-inspired UI elements */
+.notion-navbar {
+  background: linear-gradient(to bottom, #1A1A1D, #18181B);
+}
+
+.notion-button {
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+}
+
+.notion-button:hover {
+  background: linear-gradient(to right, #4F46E5, #6366F1);
+}
+
+/* Task status indicators */
+.status-pending {
+  @apply text-notionDark-warning;
+}
+
+.status-in-progress {
+  @apply text-notionDark-accent;
+}
+
+.status-completed {
+  @apply text-notionDark-success;
+}
+
+/* Add smooth transitions for interactive elements */
+button, a, input, select, textarea {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Specific styles for the login page to match the Notion aesthetic */
+.login-container {
+  @apply bg-notionDark-primary min-h-screen flex items-center justify-center;
+  background: linear-gradient(to bottom, #18181B, #1E1E22);
+}
+
+.login-card {
+  @apply bg-notionDark-secondary rounded-xl shadow-task-card p-8 max-w-md w-full;
+  border: 1px solid #29292D;
+}
+
+.login-heading {
+  @apply text-notionDark-heading text-2xl font-semibold mb-6;
+}
+
+.login-input {
+  @apply bg-notionDark-tertiary border border-notionDark-border rounded-lg text-notionDark-text placeholder:text-notionDark-placeholder focus:border-notionDark-accent focus:ring-1 focus:ring-notionDark-accent;
+}
+
+.login-button {
+  @apply bg-notionDark-accent hover:bg-opacity-90 text-white rounded-lg py-2 px-4 transition-all;
+}
+
+/* Apply specific rounded corners to Task Cards */
+.task-card-container {
+  @apply rounded-xl overflow-hidden;
 }

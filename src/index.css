@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    /* Light mode - new theme */
+    /* Light mode - original theme */
     --background: 43 47% 69%; /* #D2B48C - Tan Beige */
     --foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
 
@@ -47,43 +47,43 @@
   }
 
   .dark {
-    /* Dark mode - new theme */
-    --background: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
-    --foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
+    /* Dark mode - Notion-inspired theme (exact colors) */
+    --background: 240 3% 11%; /* #18181B - Dark Gray - Primary Background */
+    --foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White for headings */
 
-    --card: 20 18% 31%; /* #5C4B40 - Muted Vintage Mocha */
-    --card-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
+    --card: 240 5% 13%; /* #1E1E22 - Secondary Background */
+    --card-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
 
-    --popover: 20 18% 31%; /* #5C4B40 - Muted Vintage Mocha */
-    --popover-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
+    --popover: 240 5% 14%; /* #232326 - Tertiary Background */
+    --popover-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
 
-    --primary: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
-    --primary-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
+    --primary: 240 5% 11%; /* #18181B - Primary Background */
+    --primary-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
 
-    --secondary: 24 8% 17%; /* #2E2A27 - Warm Charcoal Gray */
-    --secondary-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
+    --secondary: 240 5% 13%; /* #1E1E22 - Secondary Background */
+    --secondary-foreground: 240 1% 66%; /* #A1A1AA - Muted Gray for regular text */
 
-    --muted: 24 8% 22%; /* Slightly lighter than Warm Charcoal Gray */
-    --muted-foreground: 40 30% 85%; /* Slightly dimmer Morning Glow */
+    --muted: 240 5% 13%; /* #1E1E22 - Secondary Background */
+    --muted-foreground: 240 4% 34%; /* #52525B - Dim Gray for placeholders */
 
-    --accent: 33 32% 76%; /* #E0C0A5 - Brighter Dusty Caramel */
-    --accent-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
+    --accent: 240 84% 67%; /* #6366F1 - Cool Indigo for interactive elements */
+    --accent-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
+    --destructive: 0 84% 60%; /* #EF4444 - Strong Red for errors */
+    --destructive-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
 
-    --border: 24 8% 25%;
-    --input: 24 8% 25%;
-    --ring: 33 32% 76%; /* #E0C0A5 - Brighter Dusty Caramel */
+    --border: 240 4% 16%; /* #29292D - Soft borders */
+    --input: 240 4% 16%; /* #29292D - Soft borders */
+    --ring: 240 84% 67%; /* #6366F1 - Cool Indigo */
 
-    --sidebar-background: 24 8% 17%; /* #2E2A27 - Warm Charcoal Gray */
-    --sidebar-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
-    --sidebar-primary: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
-    --sidebar-primary-foreground: 40 30% 95%; /* #F8F3E9 - Morning Glow */
-    --sidebar-accent: 33 32% 76%; /* #E0C0A5 - Brighter Dusty Caramel */
-    --sidebar-accent-foreground: 15 28% 19%; /* #3E2723 - Deep Cocoa Brown */
-    --sidebar-border: 24 8% 25%;
-    --sidebar-ring: 33 32% 76%; /* #E0C0A5 - Brighter Dusty Caramel */
+    --sidebar-background: 240 5% 13%; /* #1E1E22 - Secondary Background */
+    --sidebar-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
+    --sidebar-primary: 240 5% 11%; /* #18181B - Primary Background */
+    --sidebar-primary-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
+    --sidebar-accent: 240 84% 67%; /* #6366F1 - Cool Indigo */
+    --sidebar-accent-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
+    --sidebar-border: 240 4% 16%; /* #29292D - Soft borders */
+    --sidebar-ring: 240 84% 67%; /* #6366F1 - Cool Indigo */
   }
 }
 
@@ -94,11 +94,14 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', 'Poppins', sans-serif;
     background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary)));
+    transition: all 0.2s ease-in-out;
   }
 
   .dark body {
-    background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary)));
+    background: linear-gradient(to bottom, #18181B, #1E1E22);
+    transition: all 0.2s ease-in-out;
   }
 }
 
@@ -109,11 +112,11 @@
 
 @layer components {
   .glass-effect {
-    @apply bg-white/10 backdrop-blur-lg border border-primary/30 rounded-lg;
+    @apply bg-white/10 backdrop-blur-lg border border-primary/30 rounded-lg shadow-sm;
   }
   
   .dark .glass-effect {
-    @apply bg-black/20 backdrop-blur-lg border border-primary/30 rounded-lg;
+    @apply bg-black/20 backdrop-blur-lg border border-notionDark-border rounded-lg shadow-sm;
   }
 
   .hover-scale {
@@ -148,9 +151,41 @@
 
   .card {
     background: linear-gradient(to bottom right, hsl(var(--card)), hsl(20, 50%, 70%));
+    @apply shadow-task-card rounded-xl border border-border/40;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
 
   .dark .card {
-    background: linear-gradient(to bottom right, hsl(var(--card)), hsl(10, 18%, 37%));
+    background: linear-gradient(to bottom right, #1E1E22, #232326);
+    @apply shadow-task-card rounded-xl border border-notionDark-border/40;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .dark .task-card {
+    @apply bg-notionDark-tertiary border-notionDark-border text-notionDark-text shadow-task-card;
+  }
+  
+  .dark .success-indicator {
+    @apply text-notionDark-success;
+  }
+  
+  .dark .warning-indicator {
+    @apply text-notionDark-warning;
+  }
+  
+  .dark .error-indicator {
+    @apply text-notionDark-error;
+  }
+  
+  .dark .sidebar-nav {
+    @apply bg-notionDark-secondary border-r border-notionDark-border;
+  }
+  
+  .dark .sidebar-item-active {
+    @apply bg-notionDark-sidebarActive text-notionDark-heading;
+  }
+  
+  .modal-backdrop {
+    @apply backdrop-blur-[10px] bg-black/50;
   }
 }

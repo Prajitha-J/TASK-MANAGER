@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,23 +62,34 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// New color theme
-				lightBg: '#FFFDD0',      // Cream White
-				lightCard: '#D2B48C',    // Tan Beige
-				lightButton: '#D2B48C',  // Tan Beige
-				lightText: '#3E3E38',    // Ebony Curl
-				darkBg: '#3E2723',       // Deep Cocoa Brown
-				darkCard: '#2E2A27',     // Warm Charcoal Gray
-				darkButton: '#D2B48C',   // Tan Beige
-				darkText: '#F8F3E9',     // Morning Glow
-				// Card colors
-				vintageCard: '#C4A484',  // Vintage Mocha
-				rusticCard: '#E5B7A5',   // Rustic Clay
-				darkVintage: '#5C4B40',  // Muted Vintage Mocha
-				darkRustic: '#6B544C',   // Darker Rustic Clay
-				// Accent colors
-				dustyCaramel: '#D7B790', // Dusty Caramel for light mode
-				brightCaramel: '#E0C0A5' // Brighter for dark mode
+				notionDark: {
+					primary: '#18181B',      // Dark Gray - Main Background
+					secondary: '#1E1E22',    // Lighter Dark Gray - Cards, Panels
+					tertiary: '#232326',     // Slightly elevated gray - Task Cards
+					border: '#29292D',       // Soft borders
+					heading: '#E4E4E7',      // Soft Off-White for headings
+					text: '#A1A1AA',         // Muted Gray for regular text
+					placeholder: '#52525B',   // Dim Gray for placeholders
+					accent: '#6366F1',       // Cool Indigo for interactive elements
+					success: '#22C55E',      // Vibrant Green for success
+					warning: '#FACC15',      // Warm Yellow for warnings
+					error: '#EF4444',        // Strong Red for errors
+					sidebarActive: '#3F3F46' // Active sidebar selection
+				},
+				lightBg: '#FFFDD0',     
+				lightCard: '#D2B48C',   
+				lightButton: '#D2B48C', 
+				lightText: '#3E3E38',    
+				darkBg: '#3E2723',       
+				darkCard: '#2E2A27',     
+				darkButton: '#D2B48C',   
+				darkText: '#F8F3E9',     
+				vintageCard: '#C4A484',  
+				rusticCard: '#E5B7A5',   
+				darkVintage: '#5C4B40',  
+				darkRustic: '#6B544C',   
+				dustyCaramel: '#D7B790', 
+				brightCaramel: '#E0C0A5' 
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -124,7 +134,13 @@ export default {
 				'slide-up': 'slide-up 0.4s ease-out',
 				'slide-down': 'slide-down 0.4s ease-out',
 				'scale': 'scale 0.3s ease-out'
-			}
+			},
+			boxShadow: {
+				'task-card': '0 4px 6px rgba(0, 0, 0, 0.2)'
+			},
+			fontFamily: {
+				sans: ['Inter', 'Poppins', 'sans-serif'],
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
