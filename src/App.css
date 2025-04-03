@@ -13,10 +13,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #D2B48C);
+  filter: drop-shadow(0 0 2em #7C5CFC);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #D2B48C);
+  filter: drop-shadow(0 0 2em #7C5CFC);
 }
 
 @keyframes logo-spin {
@@ -44,17 +44,17 @@
 
 /* Custom background gradients - Light Theme */
 .light-gradient {
-  background: linear-gradient(to bottom right, #FFFDD0, #D2B48C, #FFFDD0);
+  background: linear-gradient(to bottom right, #FFFFFF, #F7F7F7);
 }
 
 /* Custom background gradients - Dark Theme (Notion-inspired) */
 .dark-gradient {
-  background: linear-gradient(to bottom, #18181B, #1E1E22);
+  background: linear-gradient(to bottom, #181818, #222222);
 }
 
 /* Notion-inspired UI elements */
 .notion-navbar {
-  background: linear-gradient(to bottom, #1A1A1D, #18181B);
+  background: linear-gradient(to bottom, #222222, #181818);
 }
 
 .notion-button {
@@ -63,20 +63,20 @@
 }
 
 .notion-button:hover {
-  background: linear-gradient(to right, #4F46E5, #6366F1);
+  background: linear-gradient(to right, #7C5CFC, #9B79FF);
 }
 
 /* Task status indicators */
 .status-pending {
-  @apply text-notionDark-warning;
+  @apply text-light-error dark:text-dark-error;
 }
 
 .status-in-progress {
-  @apply text-notionDark-accent;
+  @apply text-light-primaryAccent dark:text-dark-primaryAccent;
 }
 
 .status-completed {
-  @apply text-notionDark-success;
+  @apply text-light-success dark:text-dark-success;
 }
 
 /* Add smooth transitions for interactive elements */
@@ -86,25 +86,39 @@ button, a, input, select, textarea {
 
 /* Specific styles for the login page to match the Notion aesthetic */
 .login-container {
-  @apply bg-notionDark-primary min-h-screen flex items-center justify-center;
-  background: linear-gradient(to bottom, #18181B, #1E1E22);
+  @apply bg-light-background dark:bg-dark-background min-h-screen flex items-center justify-center;
+  background: linear-gradient(to bottom, #F7F7F7, #FFFFFF);
+}
+
+.dark .login-container {
+  background: linear-gradient(to bottom, #181818, #222222);
 }
 
 .login-card {
-  @apply bg-notionDark-secondary rounded-xl shadow-task-card p-8 max-w-md w-full;
-  border: 1px solid #29292D;
+  @apply bg-light-card dark:bg-dark-card rounded-xl shadow-task-card p-8 max-w-md w-full;
+  border: 1px solid #DADADA;
+}
+
+.dark .login-card {
+  border: 1px solid #393939;
+  box-shadow: none;
 }
 
 .login-heading {
-  @apply text-notionDark-heading text-2xl font-semibold mb-6;
+  @apply text-light-textPrimary dark:text-dark-textPrimary text-2xl font-semibold mb-6;
 }
 
 .login-input {
-  @apply bg-notionDark-tertiary border border-notionDark-border rounded-lg text-notionDark-text placeholder:text-notionDark-placeholder focus:border-notionDark-accent focus:ring-1 focus:ring-notionDark-accent;
+  @apply bg-light-input dark:bg-dark-input border border-light-border dark:border-dark-border rounded-lg 
+  text-light-textPrimary dark:text-dark-textPrimary 
+  placeholder:text-light-textSecondary dark:placeholder:text-dark-textSecondary
+  focus:border-light-primaryAccent dark:focus:border-dark-primaryAccent
+  focus:ring-1 focus:ring-light-primaryAccent dark:focus:ring-dark-primaryAccent;
 }
 
 .login-button {
-  @apply bg-notionDark-accent hover:bg-opacity-90 text-white rounded-lg py-2 px-4 transition-all;
+  @apply bg-light-primaryAccent dark:bg-dark-primaryAccent hover:bg-light-secondaryAccent dark:hover:bg-dark-secondaryAccent
+  text-white rounded-lg py-2 px-4 transition-all;
 }
 
 /* Apply specific rounded corners to Task Cards */

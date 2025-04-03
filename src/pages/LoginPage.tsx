@@ -65,12 +65,12 @@ const LoginPage = () => {
         </Button>
       </div>
       <div className="w-full max-w-md mx-auto animate-fade-in">
-        <Card className="shadow-task-card border-opacity-40 overflow-hidden">
+        <Card className="shadow-task-card dark:shadow-none border-opacity-40 dark:border-opacity-40 overflow-hidden">
           <CardHeader className="space-y-1 text-center notion-navbar pb-6">
-            <CardTitle className="text-3xl font-bold tracking-tight">
+            <CardTitle className="text-3xl font-bold tracking-tight text-light-textPrimary dark:text-dark-textPrimary">
               {isLoginMode ? "TASK MANAGER" : "Create Account"}
             </CardTitle>
-            <CardDescription className="dark:text-notionDark-text">
+            <CardDescription className="text-light-textSecondary dark:text-dark-textSecondary">
               {isLoginMode
                 ? "Enter your credentials to access your account"
                 : "Fill in your details to create a new account"}
@@ -80,11 +80,11 @@ const LoginPage = () => {
             <form onSubmit={handleAuth} className="space-y-4">
               <div className="space-y-2">
                 <div className="relative">
-                  <Mail className="absolute left-3 top-3 h-5 w-5 dark:text-notionDark-accent" />
+                  <Mail className="absolute left-3 top-3 h-5 w-5 text-light-primaryAccent dark:text-dark-primaryAccent" />
                   <Input
                     type="email"
                     placeholder="Email"
-                    className="pl-10 dark:bg-notionDark-tertiary dark:border-notionDark-border dark:text-notionDark-text dark:placeholder:text-notionDark-placeholder"
+                    className="pl-10 bg-light-input dark:bg-dark-input border-light-border dark:border-dark-border text-light-textPrimary dark:text-dark-textPrimary placeholder:text-light-textSecondary dark:placeholder:text-dark-textSecondary"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -93,11 +93,11 @@ const LoginPage = () => {
               </div>
               <div className="space-y-2">
                 <div className="relative">
-                  <Lock className="absolute left-3 top-3 h-5 w-5 dark:text-notionDark-accent" />
+                  <Lock className="absolute left-3 top-3 h-5 w-5 text-light-primaryAccent dark:text-dark-primaryAccent" />
                   <Input
                     type="password"
                     placeholder="Password"
-                    className="pl-10 dark:bg-notionDark-tertiary dark:border-notionDark-border dark:text-notionDark-text dark:placeholder:text-notionDark-placeholder"
+                    className="pl-10 bg-light-input dark:bg-dark-input border-light-border dark:border-dark-border text-light-textPrimary dark:text-dark-textPrimary placeholder:text-light-textSecondary dark:placeholder:text-dark-textSecondary"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -106,7 +106,7 @@ const LoginPage = () => {
               </div>
               <Button 
                 type="submit" 
-                className="w-full button-effect dark:bg-notionDark-accent dark:hover:bg-opacity-90 dark:text-white rounded-lg transition-all duration-200" 
+                className="w-full button-effect bg-light-primaryAccent dark:bg-dark-primaryAccent hover:bg-light-secondaryAccent dark:hover:bg-dark-secondaryAccent text-white rounded-lg transition-all duration-200" 
                 disabled={loading}
               >
                 <LogIn className="mr-2 h-4 w-4" />
@@ -116,16 +116,16 @@ const LoginPage = () => {
 
             <div className="relative my-4">
               <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t dark:border-notionDark-border" />
+                <span className="w-full border-t border-light-border dark:border-dark-border" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-2 dark:text-notionDark-placeholder dark:bg-notionDark-secondary">Or continue with</span>
+                <span className="bg-light-card dark:bg-dark-card px-2 text-light-textSecondary dark:text-dark-textSecondary">Or continue with</span>
               </div>
             </div>
 
             <Button
               variant="outline"
-              className="w-full button-effect dark:border-notionDark-border dark:text-notionDark-text dark:hover:bg-notionDark-tertiary"
+              className="w-full button-effect border-light-border dark:border-dark-border text-light-textPrimary dark:text-dark-textPrimary hover:bg-light-input dark:hover:bg-dark-input"
               onClick={handleGoogleAuth}
               disabled={loading}
             >
@@ -136,7 +136,7 @@ const LoginPage = () => {
           <CardFooter className="flex justify-center pb-6">
             <Button
               variant="link"
-              className="text-sm dark:text-notionDark-accent dark:hover:text-opacity-80"
+              className="text-sm text-light-primaryAccent dark:text-dark-primaryAccent hover:text-light-secondaryAccent dark:hover:text-dark-secondaryAccent"
               onClick={() => setIsLoginMode(!isLoginMode)}
             >
               {isLoginMode

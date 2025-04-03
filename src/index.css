@@ -5,85 +5,87 @@
 
 @layer base {
   :root {
-    /* Light mode - original theme */
-    --background: 43 47% 69%; /* #D2B48C - Tan Beige */
-    --foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
+    /* Light theme */
+    --background: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
+    --foreground: 0 0% 9%; /* #181818 - Deep Charcoal Black */
 
-    --card: 27 40% 64%; /* #C4A484 - Vintage Mocha */
-    --card-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
+    --card: 0 0% 100%; /* #FFFFFF - Pure White */
+    --card-foreground: 0 0% 9%; /* #181818 - Deep Charcoal Black */
 
-    --popover: 27 40% 64%; /* #C4A484 - Vintage Mocha */
-    --popover-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
+    --popover: 0 0% 100%; /* #FFFFFF - Pure White */
+    --popover-foreground: 0 0% 9%; /* #181818 - Deep Charcoal Black */
 
-    --primary: 43 47% 69%; /* #D2B48C - Tan Beige */
-    --primary-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
+    --primary: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
+    --primary-foreground: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
 
-    --secondary: 60 93% 90%; /* #FFFDD0 - Cream White */
-    --secondary-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
+    --secondary: 0 0% 93%; /* #EDEDED - Very Light Grey */
+    --secondary-foreground: 0 0% 9%; /* #181818 - Deep Charcoal Black */
 
-    --muted: 43 20% 85%; /* Lighter version of Tan Beige */
-    --muted-foreground: 60 4% 35%; /* Lighter version of Ebony Curl */
+    --muted: 0 0% 93%; /* #EDEDED - Very Light Grey */
+    --muted-foreground: 0 0% 41%; /* #6A6A6A - Medium Grey */
 
-    --accent: 36 46% 71%; /* #D7B790 - Dusty Caramel */
-    --accent-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
+    --accent: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
+    --accent-foreground: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 93% 90%;
+    --destructive: 0 68% 50%; /* #D32F2F - Muted Red */
+    --destructive-foreground: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
 
-    --border: 43 30% 75%;
-    --input: 43 30% 75%;
-    --ring: 43 47% 69%; /* #D2B48C - Tan Beige */
+    --border: 0 0% 85%; /* #DADADA - Light Grey */
+    --input: 0 0% 85%; /* #DADADA - Light Grey */
+    --ring: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* 12px border radius */
 
-    --sidebar-background: 60 93% 90%; /* #FFFDD0 - Cream White */
-    --sidebar-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
-    --sidebar-primary: 43 47% 69%; /* #D2B48C - Tan Beige */
-    --sidebar-primary-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
-    --sidebar-accent: 36 46% 71%; /* #D7B790 - Dusty Caramel */
-    --sidebar-accent-foreground: 60 4% 24%; /* #3E3E38 - Ebony Curl */
-    --sidebar-border: 43 30% 75%;
-    --sidebar-ring: 43 47% 69%; /* #D2B48C - Tan Beige */
+    /* Sidebar colors for light theme */
+    --sidebar-background: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
+    --sidebar-foreground: 0 0% 9%; /* #181818 - Deep Charcoal Black */
+    --sidebar-primary: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
+    --sidebar-primary-foreground: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
+    --sidebar-accent: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
+    --sidebar-accent-foreground: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
+    --sidebar-border: 0 0% 85%; /* #DADADA - Light Grey */
+    --sidebar-ring: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
   }
 
   .dark {
-    /* Dark mode - Notion-inspired theme (exact colors) */
-    --background: 240 3% 11%; /* #18181B - Dark Gray - Primary Background */
-    --foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White for headings */
+    /* Dark theme */
+    --background: 0 0% 9%; /* #181818 - Deep Charcoal Black */
+    --foreground: 0 0% 93%; /* #EDEDED - Soft White */
 
-    --card: 240 5% 13%; /* #1E1E22 - Secondary Background */
-    --card-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
+    --card: 0 0% 13%; /* #222222 - Dark Grey */
+    --card-foreground: 0 0% 93%; /* #EDEDED - Soft White */
 
-    --popover: 240 5% 14%; /* #232326 - Tertiary Background */
-    --popover-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
+    --popover: 0 0% 13%; /* #222222 - Dark Grey */
+    --popover-foreground: 0 0% 93%; /* #EDEDED - Soft White */
 
-    --primary: 240 5% 11%; /* #18181B - Primary Background */
-    --primary-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
+    --primary: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
+    --primary-foreground: 0 0% 93%; /* #EDEDED - Soft White */
 
-    --secondary: 240 5% 13%; /* #1E1E22 - Secondary Background */
-    --secondary-foreground: 240 1% 66%; /* #A1A1AA - Muted Gray for regular text */
+    --secondary: 0 0% 18%; /* #2E2E2E - Slightly Lighter Grey */
+    --secondary-foreground: 0 0% 93%; /* #EDEDED - Soft White */
 
-    --muted: 240 5% 13%; /* #1E1E22 - Secondary Background */
-    --muted-foreground: 240 4% 34%; /* #52525B - Dim Gray for placeholders */
+    --muted: 0 0% 18%; /* #2E2E2E - Slightly Lighter Grey */
+    --muted-foreground: 0 0% 69%; /* #B0B0B0 - Light Grey */
 
-    --accent: 240 84% 67%; /* #6366F1 - Cool Indigo for interactive elements */
-    --accent-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
+    --accent: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
+    --accent-foreground: 0 0% 93%; /* #EDEDED - Soft White */
 
-    --destructive: 0 84% 60%; /* #EF4444 - Strong Red for errors */
-    --destructive-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
+    --destructive: 0 100% 65%; /* #FF4D4D - Bright Red */
+    --destructive-foreground: 0 0% 93%; /* #EDEDED - Soft White */
 
-    --border: 240 4% 16%; /* #29292D - Soft borders */
-    --input: 240 4% 16%; /* #29292D - Soft borders */
-    --ring: 240 84% 67%; /* #6366F1 - Cool Indigo */
+    --border: 0 0% 22%; /* #393939 - Dark Grey */
+    --input: 0 0% 22%; /* #393939 - Dark Grey */
+    --ring: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
 
-    --sidebar-background: 240 5% 13%; /* #1E1E22 - Secondary Background */
-    --sidebar-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
-    --sidebar-primary: 240 5% 11%; /* #18181B - Primary Background */
-    --sidebar-primary-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
-    --sidebar-accent: 240 84% 67%; /* #6366F1 - Cool Indigo */
-    --sidebar-accent-foreground: 240 5% 84%; /* #E4E4E7 - Soft Off-White */
-    --sidebar-border: 240 4% 16%; /* #29292D - Soft borders */
-    --sidebar-ring: 240 84% 67%; /* #6366F1 - Cool Indigo */
+    /* Sidebar colors for dark theme */
+    --sidebar-background: 0 0% 13%; /* #222222 - Dark Grey */
+    --sidebar-foreground: 0 0% 93%; /* #EDEDED - Soft White */
+    --sidebar-primary: 0 0% 9%; /* #181818 - Deep Charcoal Black */
+    --sidebar-primary-foreground: 0 0% 93%; /* #EDEDED - Soft White */
+    --sidebar-accent: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
+    --sidebar-accent-foreground: 0 0% 93%; /* #EDEDED - Soft White */
+    --sidebar-border: 0 0% 22%; /* #393939 - Dark Grey */
+    --sidebar-ring: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
   }
 }
 
@@ -95,12 +97,11 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary)));
     transition: all 0.2s ease-in-out;
   }
 
   .dark body {
-    background: linear-gradient(to bottom, #18181B, #1E1E22);
+    background: linear-gradient(to bottom, #181818, #222222);
     transition: all 0.2s ease-in-out;
   }
 }
@@ -116,7 +117,7 @@
   }
   
   .dark .glass-effect {
-    @apply bg-black/20 backdrop-blur-lg border border-notionDark-border rounded-lg shadow-sm;
+    @apply bg-black/20 backdrop-blur-lg border border-dark-border rounded-lg shadow-sm;
   }
 
   .hover-scale {
@@ -150,39 +151,38 @@
   }
 
   .card {
-    background: linear-gradient(to bottom right, hsl(var(--card)), hsl(20, 50%, 70%));
     @apply shadow-task-card rounded-xl border border-border/40;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
 
   .dark .card {
-    background: linear-gradient(to bottom right, #1E1E22, #232326);
-    @apply shadow-task-card rounded-xl border border-notionDark-border/40;
+    @apply shadow-none rounded-xl border border-dark-border/40;
+    background: #222222;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
   
   .dark .task-card {
-    @apply bg-notionDark-tertiary border-notionDark-border text-notionDark-text shadow-task-card;
+    @apply bg-dark-card border-dark-border text-dark-textPrimary;
   }
   
   .dark .success-indicator {
-    @apply text-notionDark-success;
+    @apply text-dark-success;
   }
   
   .dark .warning-indicator {
-    @apply text-notionDark-warning;
+    @apply text-dark-error;
   }
   
   .dark .error-indicator {
-    @apply text-notionDark-error;
+    @apply text-dark-error;
   }
   
   .dark .sidebar-nav {
-    @apply bg-notionDark-secondary border-r border-notionDark-border;
+    @apply bg-dark-card border-r border-dark-border;
   }
   
   .dark .sidebar-item-active {
-    @apply bg-notionDark-sidebarActive text-notionDark-heading;
+    @apply bg-dark-input text-dark-textPrimary;
   }
   
   .modal-backdrop {
