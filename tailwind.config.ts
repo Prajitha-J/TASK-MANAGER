@@ -63,13 +63,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors matching the provided theme
-				lightBg: '#fcf9f7',       // Stark white
-				lightCard: '#e6d5c8',     // Soft malta/beige
+				// Original color theme
+				lightBg: '#fcf9f7',       // Stark white background
+				lightCard: '#e6babb',     // Soft pink/beige
 				lightButton: '#7C4A4A',   // Muted earthy wine
 				lightText: '#3c2b2b',     // Dark brown/black
-				darkBg: '#1a1311',        // Deep brownish-black
-				darkCard: '#2e1e1e',      // Dark chocolate brown
+				darkBg: '#3E2723',        // Deep cocoa brown
+				darkCard: '#2E2A27',      // Warm charcoal gray
 				darkButton: '#693c36',    // Rich reddish-brown
 				darkText: '#f1e5d1',      // Soft beige/off-white
 			},

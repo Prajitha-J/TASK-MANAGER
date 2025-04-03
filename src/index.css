@@ -5,65 +5,65 @@
 
 @layer base {
   :root {
-    /* Light mode - based on screenshots 2 and 3 (beige/tan theme) */
-    --background: 24 27% 98%; /* #fcf9f7 - Stark white */
+    /* Light mode - original theme */
+    --background: 350 20% 97%; /* #fcf9f7 - Stark white */
     --foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
 
-    --card: 24 33% 84%; /* #e6d5c8 - Soft malta/beige */
+    --card: 358 33% 82%; /* #e6babb - Soft pink/beige */
     --card-foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
 
-    --popover: 24 33% 84%; /* #e6d5c8 - Soft malta/beige */
+    --popover: 358 33% 82%; /* #e6babb - Soft pink/beige */
     --popover-foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
 
     --primary: 0 25% 39%; /* #7C4A4A - Muted earthy wine */
-    --primary-foreground: 24 27% 98%; /* #fcf9f7 - Stark white */
+    --primary-foreground: 350 20% 97%; /* #fcf9f7 - Stark white */
 
-    --secondary: 24 33% 90%; /* Lighter version of card color */
+    --secondary: 358 20% 90%; /* Lighter version of card color */
     --secondary-foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
 
-    --muted: 24 33% 90%; /* Lighter version of card color */
+    --muted: 358 20% 90%; /* Lighter version of card color */
     --muted-foreground: 20 16% 45%; /* Lighter version of foreground */
 
     --accent: 0 25% 49%; /* Slightly lighter primary */
-    --accent-foreground: 24 27% 98%; /* #fcf9f7 - Stark white */
+    --accent-foreground: 350 20% 97%; /* #fcf9f7 - Stark white */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 24 20% 80%;
-    --input: 24 20% 80%;
+    --border: 358 20% 80%;
+    --input: 358 20% 80%;
     --ring: 0 25% 39%; /* #7C4A4A - Muted earthy wine */
 
     --radius: 0.5rem;
 
-    --sidebar-background: 24 27% 98%; /* #fcf9f7 - Stark white */
+    --sidebar-background: 350 20% 97%; /* #fcf9f7 - Stark white */
     --sidebar-foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
     --sidebar-primary: 0 25% 39%; /* #7C4A4A - Muted earthy wine */
-    --sidebar-primary-foreground: 24 27% 98%; /* #fcf9f7 - Stark white */
-    --sidebar-accent: 24 33% 90%;
+    --sidebar-primary-foreground: 350 20% 97%; /* #fcf9f7 - Stark white */
+    --sidebar-accent: 358 20% 90%;
     --sidebar-accent-foreground: 20 16% 20%; /* #3c2b2b - Dark brown/black */
-    --sidebar-border: 24 20% 80%;
+    --sidebar-border: 358 20% 80%;
     --sidebar-ring: 0 25% 39%; /* #7C4A4A - Muted earthy wine */
   }
 
   .dark {
-    /* Dark mode - based on screenshots 4 and 5 (dark brown theme) */
-    --background: 15 15% 8%; /* #1a1311 - Deep brownish-black */
+    /* Dark mode - original theme */
+    --background: 8 27% 20%; /* #3E2723 - Deep cocoa brown */
     --foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
 
-    --card: 0 24% 15%; /* #2e1e1e - Dark chocolate brown */
+    --card: 24 15% 17%; /* #2E2A27 - Warm charcoal gray */
     --card-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
 
-    --popover: 0 24% 15%; /* #2e1e1e - Dark chocolate brown */
+    --popover: 24 15% 17%; /* #2E2A27 - Warm charcoal gray */
     --popover-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
 
     --primary: 6 32% 31%; /* #693c36 - Rich reddish-brown */
     --primary-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
 
-    --secondary: 0 24% 20%; /* Slightly lighter than card */
+    --secondary: 24 15% 22%; /* Slightly lighter than card */
     --secondary-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
 
-    --muted: 0 24% 20%; /* Slightly lighter than card */
+    --muted: 24 15% 22%; /* Slightly lighter than card */
     --muted-foreground: 39 40% 70%; /* Slightly dimmer foreground */
 
     --accent: 6 32% 36%; /* Slightly lighter primary */
@@ -72,17 +72,17 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
 
-    --border: 0 24% 25%;
-    --input: 0 24% 25%;
+    --border: 24 15% 25%;
+    --input: 24 15% 25%;
     --ring: 6 32% 31%; /* #693c36 - Rich reddish-brown */
 
-    --sidebar-background: 0 24% 15%; /* #2e1e1e - Dark chocolate brown */
+    --sidebar-background: 24 15% 17%; /* #2E2A27 - Warm charcoal gray */
     --sidebar-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
     --sidebar-primary: 6 32% 31%; /* #693c36 - Rich reddish-brown */
     --sidebar-primary-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
-    --sidebar-accent: 0 10% 20%;
+    --sidebar-accent: 24 10% 20%;
     --sidebar-accent-foreground: 39 40% 88%; /* #f1e5d1 - Soft beige/off-white */
-    --sidebar-border: 0 20% 25%;
+    --sidebar-border: 24 15% 25%;
     --sidebar-ring: 6 32% 31%; /* #693c36 - Rich reddish-brown */
   }
 }
