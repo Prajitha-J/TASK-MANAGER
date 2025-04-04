@@ -51,14 +51,14 @@
   background: linear-gradient(to bottom right, #FAF7F1, #F5F1E9);
 }
 
-/* Custom background gradients - Dark Theme (Brown-themed) */
+/* Custom background gradients - Dark Theme (Updated Brown-themed) */
 .dark-gradient {
-  background: linear-gradient(to bottom, #221B17, #2E221E);
+  background: linear-gradient(to bottom, #291F1A, #332620);
 }
 
 /* Brown-themed UI elements */
 .notion-navbar {
-  background: linear-gradient(to bottom, #1A1410, #221B17);
+  background: linear-gradient(to bottom, #201813, #291F1A);
 }
 
 .notion-button {
@@ -95,7 +95,7 @@ button, a, input, select, textarea {
 }
 
 .dark .login-container {
-  background: linear-gradient(to bottom, #221B17, #2E221E);
+  background: linear-gradient(to bottom, #291F1A, #332620);
 }
 
 .login-card {
@@ -104,7 +104,7 @@ button, a, input, select, textarea {
 }
 
 .dark .login-card {
-  border: 1px solid #4E4037;
+  border: 1px solid #4A3A33;
   box-shadow: none;
 }
 

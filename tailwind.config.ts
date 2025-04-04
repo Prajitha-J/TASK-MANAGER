@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,20 +63,20 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				dark: {
-					background: '#221B17',      // Rich dark brown
-					card: '#2E221E',            // Soft cocoa brown
-					input: '#3A2F2A',           // Muted warm brown
-					primaryAccent: '#5C3B31',   // Deep reddish-brown
-					secondaryAccent: '#804D3E', // Burnt sienna
-					textPrimary: '#EAE0D5',     // Warm white
-					textSecondary: '#D2B48C',   // Soft beige
-					border: '#4E4037',          // Soft brown-gray
-					error: '#993333',           // Deep red-brown
-					success: '#6B8E23',         // Warm greenish-brown
-					warning: '#B8860B',         // Golden brown
-					sidebar: '#1A1410',         // Deep espresso brown
-					inactive: '#574840',        // Muted brown-gray
-					placeholder: '#A89582'       // Muted warm beige
+					background: '#291F1A',      // Updated darker rich brown
+					card: '#332620',            // Updated richer cocoa brown
+					input: '#3E322C',           // Updated muted warm brown
+					primaryAccent: '#5C3B31',   // Deep reddish-brown (kept same)
+					secondaryAccent: '#804D3E', // Burnt sienna (kept same)
+					textPrimary: '#EAE0D5',     // Warm white (kept same)
+					textSecondary: '#D2B48C',   // Soft beige (kept same)
+					border: '#4A3A33',          // Updated soft brown-gray
+					error: '#993333',           // Deep red-brown (kept same)
+					success: '#6B8E23',         // Warm greenish-brown (kept same)
+					warning: '#B8860B',         // Golden brown (kept same)
+					sidebar: '#201813',         // Updated deep espresso brown
+					inactive: '#574840',        // Muted brown-gray (kept same)
+					placeholder: '#A89582'       // Muted warm beige (kept same)
 				},
 				light: {
 					background: '#FAF7F1',      // Soft warm ivory
@@ -142,7 +141,7 @@ export default {
 			},
 			boxShadow: {
 				'task-card': '0 4px 6px rgba(0, 0, 0, 0.05)',
-				'dark-card': '0 4px 6px rgba(42, 30, 25, 0.4)',
+				'dark-card': '0 4px 6px rgba(32, 24, 19, 0.4)',
 				'light-card': '0 4px 6px rgba(194, 184, 163, 0.4)'
 			},
 			fontFamily: {

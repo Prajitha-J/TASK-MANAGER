@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -48,23 +47,23 @@
   }
 
   .dark {
-    /* Dark theme - Brown theme */
-    --background: 22 15% 12%; /* #221B17 - Rich dark brown */
+    /* Dark theme - Brown theme - Updated to match screenshot exactly */
+    --background: 20 33% 11%; /* #291F1A - Darker rich brown for background */
     --foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --card: 15 19% 15%; /* #2E221E - Soft cocoa brown */
+    --card: 16 25% 16%; /* #332620 - Richer brown for cards */
     --card-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --popover: 15 19% 15%; /* #2E221E - Soft cocoa brown */
+    --popover: 16 25% 16%; /* #332620 - Richer brown for popovers */
     --popover-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
     --primary: 14 30% 28%; /* #5C3B31 - Deep reddish-brown */
     --primary-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --secondary: 18 19% 20%; /* #3A2F2A - Muted warm brown */
+    --secondary: 20 20% 22%; /* #3E322C - Adjusted muted warm brown */
     --secondary-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --muted: 18 19% 20%; /* #3A2F2A - Muted warm brown */
+    --muted: 20 20% 22%; /* #3E322C - Adjusted muted warm brown */
     --muted-foreground: 42 28% 70%; /* #D2B48C - Soft beige */
 
     --accent: 14 30% 28%; /* #5C3B31 - Deep reddish-brown */
@@ -73,18 +72,18 @@
     --destructive: 0 50% 40%; /* #993333 - Deep red-brown */
     --destructive-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --border: 18 13% 27%; /* #4E4037 - Soft brown-gray */
-    --input: 18 13% 27%; /* #4E4037 - Soft brown-gray */
+    --border: 20 15% 25%; /* #4A3A33 - Adjusted soft brown-gray border */
+    --input: 20 15% 25%; /* #4A3A33 - Adjusted soft brown-gray input */
     --ring: 14 34% 38%; /* #804D3E - Burnt sienna */
 
     /* Sidebar colors for dark theme */
-    --sidebar-background: 23 19% 8%; /* #1A1410 - Deep espresso brown */
+    --sidebar-background: 25 30% 8%; /* #201813 - Deeper espresso brown */
     --sidebar-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
     --sidebar-primary: 14 30% 28%; /* #5C3B31 - Deep reddish-brown */
     --sidebar-primary-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
     --sidebar-accent: 14 34% 38%; /* #804D3E - Burnt sienna */
     --sidebar-accent-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
-    --sidebar-border: 18 13% 27%; /* #4E4037 - Soft brown-gray */
+    --sidebar-border: 20 15% 25%; /* #4A3A33 - Adjusted soft brown-gray border */
     --sidebar-ring: 14 34% 38%; /* #804D3E - Burnt sienna */
   }
 }
@@ -101,7 +100,7 @@
   }
 
   .dark body {
-    background: linear-gradient(to bottom, #221B17, #2E221E);
+    background: linear-gradient(to bottom, #291F1A, #332620);
     transition: all 0.2s ease-in-out;
   }
 
@@ -199,7 +198,7 @@
   }
 
   .dark .login-container {
-    background: linear-gradient(to bottom, #221B17, #2E221E);
+    background: linear-gradient(to bottom, #291F1A, #332620);
   }
 
   .login-card {
@@ -208,8 +207,9 @@
   }
 
   .dark .login-card {
-    border: 1px solid #4E4037;
+    border: 1px solid #4A3A33;
     box-shadow: none;
+    background-color: #332620;
   }
 
   .login-input {
