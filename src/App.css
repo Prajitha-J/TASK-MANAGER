@@ -13,10 +13,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #7C5CFC);
+  filter: drop-shadow(0 0 2em #5C3B31);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #7C5CFC);
+  filter: drop-shadow(0 0 2em #5C3B31);
 }
 
 @keyframes logo-spin {
@@ -39,22 +39,26 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: #4D443A;
+}
+
+.dark .read-the-docs {
+  color: #D2B48C;
 }
 
 /* Custom background gradients - Light Theme */
 .light-gradient {
-  background: linear-gradient(to bottom right, #FFFFFF, #F7F7F7);
+  background: linear-gradient(to bottom right, #FAF7F1, #F5F1E9);
 }
 
-/* Custom background gradients - Dark Theme (Notion-inspired) */
+/* Custom background gradients - Dark Theme (Brown-themed) */
 .dark-gradient {
-  background: linear-gradient(to bottom, #181818, #222222);
+  background: linear-gradient(to bottom, #221B17, #2E221E);
 }
 
-/* Notion-inspired UI elements */
+/* Brown-themed UI elements */
 .notion-navbar {
-  background: linear-gradient(to bottom, #222222, #181818);
+  background: linear-gradient(to bottom, #1A1410, #221B17);
 }
 
 .notion-button {
@@ -63,7 +67,7 @@
 }
 
 .notion-button:hover {
-  background: linear-gradient(to right, #7C5CFC, #9B79FF);
+  background: linear-gradient(to right, #5C3B31, #804D3E);
 }
 
 /* Task status indicators */
@@ -84,23 +88,23 @@ button, a, input, select, textarea {
   transition: all 0.2s ease-in-out;
 }
 
-/* Specific styles for the login page to match the Notion aesthetic */
+/* Specific styles for the login page to match the brown aesthetic */
 .login-container {
   @apply bg-light-background dark:bg-dark-background min-h-screen flex items-center justify-center;
-  background: linear-gradient(to bottom, #F7F7F7, #FFFFFF);
+  background: linear-gradient(to bottom, #FAF7F1, #F5F1E9);
 }
 
 .dark .login-container {
-  background: linear-gradient(to bottom, #181818, #222222);
+  background: linear-gradient(to bottom, #221B17, #2E221E);
 }
 
 .login-card {
-  @apply bg-light-card dark:bg-dark-card rounded-xl shadow-task-card p-8 max-w-md w-full;
-  border: 1px solid #DADADA;
+  @apply bg-light-card dark:bg-dark-card rounded-xl shadow-light-card dark:shadow-dark-card p-8 max-w-md w-full;
+  border: 1px solid #C2B8A3;
 }
 
 .dark .login-card {
-  border: 1px solid #393939;
+  border: 1px solid #4E4037;
   box-shadow: none;
 }
 
@@ -111,7 +115,7 @@ button, a, input, select, textarea {
 .login-input {
   @apply bg-light-input dark:bg-dark-input border border-light-border dark:border-dark-border rounded-lg 
   text-light-textPrimary dark:text-dark-textPrimary 
-  placeholder:text-light-textSecondary dark:placeholder:text-dark-textSecondary
+  placeholder:text-light-placeholder dark:placeholder:text-dark-placeholder
   focus:border-light-primaryAccent dark:focus:border-dark-primaryAccent
   focus:ring-1 focus:ring-light-primaryAccent dark:focus:ring-dark-primaryAccent;
 }

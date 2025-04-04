@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,28 +64,36 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				dark: {
-					background: '#181818',      // Deep Charcoal Black
-					card: '#222222',            // Dark Grey
-					input: '#2E2E2E',           // Slightly Lighter Grey
-					primaryAccent: '#7C5CFC',   // Vibrant Purple
-					secondaryAccent: '#9B79FF', // Lighter Purple
-					textPrimary: '#EDEDED',     // Soft White
-					textSecondary: '#B0B0B0',   // Light Grey
-					border: '#393939',          // Dark Grey
-					error: '#FF4D4D',           // Bright Red
-					success: '#31D158'          // Vivid Green
+					background: '#221B17',      // Rich dark brown
+					card: '#2E221E',            // Soft cocoa brown
+					input: '#3A2F2A',           // Muted warm brown
+					primaryAccent: '#5C3B31',   // Deep reddish-brown
+					secondaryAccent: '#804D3E', // Burnt sienna
+					textPrimary: '#EAE0D5',     // Warm white
+					textSecondary: '#D2B48C',   // Soft beige
+					border: '#4E4037',          // Soft brown-gray
+					error: '#993333',           // Deep red-brown
+					success: '#6B8E23',         // Warm greenish-brown
+					warning: '#B8860B',         // Golden brown
+					sidebar: '#1A1410',         // Deep espresso brown
+					inactive: '#574840',        // Muted brown-gray
+					placeholder: '#A89582'       // Muted warm beige
 				},
 				light: {
-					background: '#F7F7F7',      // Soft Off-White
-					card: '#FFFFFF',            // Pure White
-					input: '#EDEDED',           // Very Light Grey
-					primaryAccent: '#7C5CFC',   // Vibrant Purple
-					secondaryAccent: '#9B79FF', // Lighter Purple
-					textPrimary: '#181818',     // Deep Charcoal Black
-					textSecondary: '#6A6A6A',   // Medium Grey
-					border: '#DADADA',          // Light Grey
-					error: '#D32F2F',           // Muted Red
-					success: '#2E7D32'          // Deep Green
+					background: '#FAF7F1',      // Soft warm ivory
+					card: '#F5F1E9',            // Light beige
+					input: '#F5F1E9',           // Very pale cream
+					primaryAccent: '#C0A27E',   // Warm sand
+					secondaryAccent: '#D6B98C', // Golden beige
+					textPrimary: '#1E1B16',     // Rich dark brown
+					textSecondary: '#4D443A',   // Warm gray-brown
+					border: '#C2B8A3',          // Light taupe
+					error: '#C17A6F',           // Muted red-brown
+					success: '#A3A656',         // Soft olive green
+					warning: '#D6A349',         // Golden sand
+					sidebar: '#F8F4EC',         // Warm off-white
+					inactive: '#A69F91',        // Soft taupe-gray
+					placeholder: '#A69F91'       // Soft sand
 				}
 			},
 			borderRadius: {
@@ -132,7 +141,9 @@ export default {
 				'scale': 'scale 0.3s ease-out'
 			},
 			boxShadow: {
-				'task-card': '0 4px 6px rgba(0, 0, 0, 0.05)'
+				'task-card': '0 4px 6px rgba(0, 0, 0, 0.05)',
+				'dark-card': '0 4px 6px rgba(42, 30, 25, 0.4)',
+				'light-card': '0 4px 6px rgba(194, 184, 163, 0.4)'
 			},
 			fontFamily: {
 				sans: ['Inter', 'Poppins', 'sans-serif'],

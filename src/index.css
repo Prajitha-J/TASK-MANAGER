@@ -5,87 +5,87 @@
 
 @layer base {
   :root {
-    /* Light theme */
-    --background: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
-    --foreground: 0 0% 9%; /* #181818 - Deep Charcoal Black */
+    /* Light theme - Beige theme */
+    --background: 42 45% 96%; /* #FAF7F1 - Soft warm ivory */
+    --foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
 
-    --card: 0 0% 100%; /* #FFFFFF - Pure White */
-    --card-foreground: 0 0% 9%; /* #181818 - Deep Charcoal Black */
+    --card: 38 40% 94%; /* #F5F1E9 - Light beige */
+    --card-foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
 
-    --popover: 0 0% 100%; /* #FFFFFF - Pure White */
-    --popover-foreground: 0 0% 9%; /* #181818 - Deep Charcoal Black */
+    --popover: 38 40% 94%; /* #F5F1E9 - Light beige */
+    --popover-foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
 
-    --primary: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
-    --primary-foreground: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
+    --primary: 34 36% 62%; /* #C0A27E - Warm sand */
+    --primary-foreground: 42 45% 96%; /* #FAF7F1 - Soft warm ivory */
 
-    --secondary: 0 0% 93%; /* #EDEDED - Very Light Grey */
-    --secondary-foreground: 0 0% 9%; /* #181818 - Deep Charcoal Black */
+    --secondary: 38 40% 94%; /* #F5F1E9 - Light beige */
+    --secondary-foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
 
-    --muted: 0 0% 93%; /* #EDEDED - Very Light Grey */
-    --muted-foreground: 0 0% 41%; /* #6A6A6A - Medium Grey */
+    --muted: 36 27% 82%; /* #E0D5C3 - Muted taupe */
+    --muted-foreground: 30 9% 52%; /* #A69F91 - Soft taupe-gray */
 
-    --accent: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
-    --accent-foreground: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
+    --accent: 37 33% 73%; /* #D6B98C - Golden beige */
+    --accent-foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
 
-    --destructive: 0 68% 50%; /* #D32F2F - Muted Red */
-    --destructive-foreground: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
+    --destructive: 6 33% 60%; /* #C17A6F - Muted red-brown */
+    --destructive-foreground: 42 45% 96%; /* #FAF7F1 - Soft warm ivory */
 
-    --border: 0 0% 85%; /* #DADADA - Light Grey */
-    --input: 0 0% 85%; /* #DADADA - Light Grey */
-    --ring: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
+    --border: 32 24% 70%; /* #C2B8A3 - Light taupe */
+    --input: 32 24% 70%; /* #C2B8A3 - Light taupe */
+    --ring: 34 36% 62%; /* #C0A27E - Warm sand */
 
     --radius: 0.75rem; /* 12px border radius */
 
     /* Sidebar colors for light theme */
-    --sidebar-background: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
-    --sidebar-foreground: 0 0% 9%; /* #181818 - Deep Charcoal Black */
-    --sidebar-primary: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
-    --sidebar-primary-foreground: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
-    --sidebar-accent: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
-    --sidebar-accent-foreground: 0 0% 97%; /* #F7F7F7 - Soft Off-White */
-    --sidebar-border: 0 0% 85%; /* #DADADA - Light Grey */
-    --sidebar-ring: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
+    --sidebar-background: 41 50% 95%; /* #F8F4EC - Warm off-white */
+    --sidebar-foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
+    --sidebar-primary: 37 33% 73%; /* #D6B98C - Golden beige */
+    --sidebar-primary-foreground: 42 45% 96%; /* #FAF7F1 - Soft warm ivory */
+    --sidebar-accent: 34 36% 62%; /* #C0A27E - Warm sand */
+    --sidebar-accent-foreground: 42 45% 96%; /* #FAF7F1 - Soft warm ivory */
+    --sidebar-border: 32 24% 70%; /* #C2B8A3 - Light taupe */
+    --sidebar-ring: 34 36% 62%; /* #C0A27E - Warm sand */
   }
 
   .dark {
-    /* Dark theme */
-    --background: 0 0% 9%; /* #181818 - Deep Charcoal Black */
-    --foreground: 0 0% 93%; /* #EDEDED - Soft White */
+    /* Dark theme - Brown theme */
+    --background: 22 15% 12%; /* #221B17 - Rich dark brown */
+    --foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --card: 0 0% 13%; /* #222222 - Dark Grey */
-    --card-foreground: 0 0% 93%; /* #EDEDED - Soft White */
+    --card: 15 19% 15%; /* #2E221E - Soft cocoa brown */
+    --card-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --popover: 0 0% 13%; /* #222222 - Dark Grey */
-    --popover-foreground: 0 0% 93%; /* #EDEDED - Soft White */
+    --popover: 15 19% 15%; /* #2E221E - Soft cocoa brown */
+    --popover-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --primary: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
-    --primary-foreground: 0 0% 93%; /* #EDEDED - Soft White */
+    --primary: 14 30% 28%; /* #5C3B31 - Deep reddish-brown */
+    --primary-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --secondary: 0 0% 18%; /* #2E2E2E - Slightly Lighter Grey */
-    --secondary-foreground: 0 0% 93%; /* #EDEDED - Soft White */
+    --secondary: 18 19% 20%; /* #3A2F2A - Muted warm brown */
+    --secondary-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --muted: 0 0% 18%; /* #2E2E2E - Slightly Lighter Grey */
-    --muted-foreground: 0 0% 69%; /* #B0B0B0 - Light Grey */
+    --muted: 18 19% 20%; /* #3A2F2A - Muted warm brown */
+    --muted-foreground: 42 28% 70%; /* #D2B48C - Soft beige */
 
-    --accent: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
-    --accent-foreground: 0 0% 93%; /* #EDEDED - Soft White */
+    --accent: 14 30% 28%; /* #5C3B31 - Deep reddish-brown */
+    --accent-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --destructive: 0 100% 65%; /* #FF4D4D - Bright Red */
-    --destructive-foreground: 0 0% 93%; /* #EDEDED - Soft White */
+    --destructive: 0 50% 40%; /* #993333 - Deep red-brown */
+    --destructive-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
 
-    --border: 0 0% 22%; /* #393939 - Dark Grey */
-    --input: 0 0% 22%; /* #393939 - Dark Grey */
-    --ring: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
+    --border: 18 13% 27%; /* #4E4037 - Soft brown-gray */
+    --input: 18 13% 27%; /* #4E4037 - Soft brown-gray */
+    --ring: 14 34% 38%; /* #804D3E - Burnt sienna */
 
     /* Sidebar colors for dark theme */
-    --sidebar-background: 0 0% 13%; /* #222222 - Dark Grey */
-    --sidebar-foreground: 0 0% 93%; /* #EDEDED - Soft White */
-    --sidebar-primary: 0 0% 9%; /* #181818 - Deep Charcoal Black */
-    --sidebar-primary-foreground: 0 0% 93%; /* #EDEDED - Soft White */
-    --sidebar-accent: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
-    --sidebar-accent-foreground: 0 0% 93%; /* #EDEDED - Soft White */
-    --sidebar-border: 0 0% 22%; /* #393939 - Dark Grey */
-    --sidebar-ring: 259 96% 67%; /* #7C5CFC - Vibrant Purple */
+    --sidebar-background: 23 19% 8%; /* #1A1410 - Deep espresso brown */
+    --sidebar-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
+    --sidebar-primary: 14 30% 28%; /* #5C3B31 - Deep reddish-brown */
+    --sidebar-primary-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
+    --sidebar-accent: 14 34% 38%; /* #804D3E - Burnt sienna */
+    --sidebar-accent-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
+    --sidebar-border: 18 13% 27%; /* #4E4037 - Soft brown-gray */
+    --sidebar-ring: 14 34% 38%; /* #804D3E - Burnt sienna */
   }
 }
 
@@ -101,8 +101,12 @@
   }
 
   .dark body {
-    background: linear-gradient(to bottom, #181818, #222222);
+    background: linear-gradient(to bottom, #221B17, #2E221E);
     transition: all 0.2s ease-in-out;
+  }
+
+  body {
+    background: linear-gradient(to bottom, #FAF7F1, #F5F1E9);
   }
 }
 
@@ -151,13 +155,13 @@
   }
 
   .card {
-    @apply shadow-task-card rounded-xl border border-border/40;
+    @apply shadow-light-card rounded-xl border border-border/40;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
 
   .dark .card {
-    @apply shadow-none rounded-xl border border-dark-border/40;
-    background: #222222;
+    @apply shadow-dark-card rounded-xl border border-dark-border/40;
+    background: #2E221E;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
   
@@ -170,7 +174,7 @@
   }
   
   .dark .warning-indicator {
-    @apply text-dark-error;
+    @apply text-dark-warning;
   }
   
   .dark .error-indicator {
@@ -178,14 +182,46 @@
   }
   
   .dark .sidebar-nav {
-    @apply bg-dark-card border-r border-dark-border;
+    @apply bg-dark-sidebar border-r border-dark-border;
   }
   
   .dark .sidebar-item-active {
-    @apply bg-dark-input text-dark-textPrimary;
+    @apply bg-dark-primaryAccent text-dark-textPrimary;
   }
   
   .modal-backdrop {
     @apply backdrop-blur-[10px] bg-black/50;
+  }
+
+  .login-container {
+    @apply bg-light-background dark:bg-dark-background min-h-screen flex items-center justify-center;
+    background: linear-gradient(to bottom, #FAF7F1, #F5F1E9);
+  }
+
+  .dark .login-container {
+    background: linear-gradient(to bottom, #221B17, #2E221E);
+  }
+
+  .login-card {
+    @apply bg-light-card dark:bg-dark-card rounded-xl shadow-light-card dark:shadow-dark-card p-8 max-w-md w-full;
+    border: 1px solid #C2B8A3;
+  }
+
+  .dark .login-card {
+    border: 1px solid #4E4037;
+    box-shadow: none;
+  }
+
+  .login-input {
+    @apply bg-light-input dark:bg-dark-input border border-light-border dark:border-dark-border rounded-lg 
+    text-light-textPrimary dark:text-dark-textPrimary 
+    placeholder:text-light-placeholder dark:placeholder:text-dark-placeholder
+    focus:border-light-primaryAccent dark:focus:border-dark-primaryAccent
+    focus:ring-1 focus:ring-light-primaryAccent dark:focus:ring-dark-primaryAccent;
+  }
+
+  .login-button {
+    @apply bg-light-primaryAccent dark:bg-dark-primaryAccent hover:bg-light-secondaryAccent dark:hover:bg-dark-secondaryAccent
+    text-white rounded-lg py-2 px-4 transition-all;
   }
 }
