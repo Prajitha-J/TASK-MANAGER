@@ -43,7 +43,7 @@
 }
 
 .dark .read-the-docs {
-  color: #C2A08A;
+  color: #C8B3A3;
 }
 
 /* Custom background gradients - Light Theme */
@@ -53,12 +53,12 @@
 
 /* Custom background gradients - Dark Theme (Updated to exact colors) */
 .dark-gradient {
-  background: linear-gradient(to bottom, #1E1B18, #2A211D);
+  background: linear-gradient(to bottom, #120D0A, #1A1310);
 }
 
 /* Brown-themed UI elements */
 .notion-navbar {
-  background: linear-gradient(to bottom, #181512, #1E1B18);
+  background: linear-gradient(to bottom, #120D0A, #1A1310);
 }
 
 .notion-button {
@@ -67,7 +67,7 @@
 }
 
 .notion-button:hover {
-  background: linear-gradient(to right, #81534B, #6D4037);
+  background: linear-gradient(to right, #3B1C18, #4D2A26);
 }
 
 /* Task status indicators */
@@ -95,7 +95,7 @@ button, a, input, select, textarea {
 }
 
 .dark .login-container {
-  background: linear-gradient(to bottom, #1E1B18, #2A211D);
+  background: linear-gradient(to bottom, #120D0A, #1A1310);
 }
 
 .login-card {
@@ -104,7 +104,7 @@ button, a, input, select, textarea {
 }
 
 .dark .login-card {
-  border: 1px solid #3A2E28;
+  border: 1px solid #2B1F1B;
   box-shadow: none;
 }
 

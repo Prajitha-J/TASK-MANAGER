@@ -63,21 +63,25 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				dark: {
-					background: '#1E1B18',      // Updated: Dark Chocolate Brown
-					card: '#2A211D',            // Updated: Deep Cocoa Brown
-					input: '#2A211D',           // Matching card background
-					primaryAccent: '#81534B',   // Updated: Muted Reddish Brown
-					secondaryAccent: '#6D4037', // Updated: Darker Brownish Red
-					textPrimary: '#E8D7C5',     // Updated: Soft Beige
-					textSecondary: '#C2A08A',   // Updated: Muted Coffee Beige
-					border: '#3A2E28',          // Slightly darker than card
-					error: '#993333',           // Kept same
-					success: '#6B8E23',         // Kept same
-					warning: '#B8860B',         // Kept same
-					sidebar: '#181512',         // Slightly darker than background
-					inactive: '#574840',        // Kept same
-					placeholder: '#A89582',      // Kept same
-					icon: '#7D5A50'             // Added: Deep Coffee for icons
+					background: '#120D0A',      // Updated: Near-Black Deep Brown
+					card: '#1A1310',           // Updated: Dark Chocolate Brown
+					input: '#2B1F1B',          // Updated: Muted Espresso Brown
+					primaryAccent: '#3B1C18',  // Updated: Dark Reddish Brown
+					secondaryAccent: '#4D2A26', // Updated: Slightly Brighter Brown-Red
+					textPrimary: '#F5E6D8',    // Updated: Warm Off-White
+					textSecondary: '#C8B3A3',  // Updated: Soft Beige
+					border: '#2B1F1B',         // Updated: Muted Espresso Brown
+					error: '#993333',          // Kept same
+					success: '#6B8E23',        // Kept same
+					warning: '#B8860B',        // Kept same
+					sidebar: '#120D0A',        // Updated: Near-Black Deep Brown
+					inactive: '#574840',       // Kept same
+					placeholder: '#A89282',    // Updated: Faded Coffee Beige
+					icon: '#D5BFAF',           // Updated: Creamy Coffee
+					divider: '#2D211D',        // Added: Faint Cocoa Brown
+					googleButton: '#1E1613',   // Added: Dark Walnut Brown 
+					googleText: '#D9C5B5',     // Added: Pale Warm Beige
+					googleHover: '#3A2A26'     // Added: Deep Brown
 				},
 				light: {
 					background: '#FAF7F1',      // Soft warm ivory

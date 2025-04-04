@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -47,44 +48,44 @@
   }
 
   .dark {
-    /* Dark theme - Brown theme - Updated to match screenshot exactly */
-    --background: 27 10% 11%; /* #1E1B18 - Dark Chocolate Brown */
-    --foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
+    /* Updated Dark theme - Exact match to the provided colors */
+    --background: 18 25% 5%; /* #120D0A - Near-Black Deep Brown */
+    --foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
 
-    --card: 22 10% 14%; /* #2A211D - Deep Cocoa Brown */
-    --card-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
+    --card: 16 15% 8%; /* #1A1310 - Dark Chocolate Brown */
+    --card-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
 
-    --popover: 22 10% 14%; /* #2A211D - Deep Cocoa Brown */
-    --popover-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
+    --popover: 16 15% 8%; /* #1A1310 - Dark Chocolate Brown */
+    --popover-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
 
-    --primary: 10 20% 40%; /* #81534B - Muted Reddish Brown */
-    --primary-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
+    --primary: 7 37% 16%; /* #3B1C18 - Dark Reddish Brown */
+    --primary-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
 
-    --secondary: 22 10% 14%; /* #2A211D - Deep Cocoa Brown */
-    --secondary-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
+    --secondary: 16 15% 8%; /* #1A1310 - Dark Chocolate Brown */
+    --secondary-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
 
-    --muted: 22 10% 14%; /* #2A211D - Deep Cocoa Brown */
-    --muted-foreground: 23 27% 65%; /* #C2A08A - Muted Coffee Beige */
+    --muted: 16 15% 8%; /* #1A1310 - Dark Chocolate Brown */
+    --muted-foreground: 24 24% 59%; /* #C8B3A3 - Soft Beige */
 
-    --accent: 10 20% 40%; /* #81534B - Muted Reddish Brown */
-    --accent-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
+    --accent: 7 37% 16%; /* #3B1C18 - Dark Reddish Brown */
+    --accent-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
 
     --destructive: 0 50% 40%; /* #993333 - Deep red-brown */
-    --destructive-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
+    --destructive-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
 
-    --border: 22 15% 19%; /* #3A2E28 - Slightly darker than card */
-    --input: 22 15% 19%; /* #3A2E28 - Slightly darker than card */
-    --ring: 10 27% 32%; /* #6D4037 - Darker Brownish Red */
+    --border: 14 25% 14%; /* #2B1F1B - Muted Espresso Brown */
+    --input: 14 25% 14%; /* #2B1F1B - Muted Espresso Brown */
+    --ring: 7 31% 23%; /* #4D2A26 - Slightly Brighter Brown-Red */
 
     /* Sidebar colors for dark theme */
-    --sidebar-background: 28 10% 9%; /* #181512 - Slightly darker than background */
-    --sidebar-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
-    --sidebar-primary: 10 20% 40%; /* #81534B - Muted Reddish Brown */
-    --sidebar-primary-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
-    --sidebar-accent: 10 27% 32%; /* #6D4037 - Darker Brownish Red */
-    --sidebar-accent-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
-    --sidebar-border: 22 15% 19%; /* #3A2E28 - Slightly darker than card */
-    --sidebar-ring: 10 27% 32%; /* #6D4037 - Darker Brownish Red */
+    --sidebar-background: 18 25% 5%; /* #120D0A - Near-Black Deep Brown */
+    --sidebar-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+    --sidebar-primary: 7 37% 16%; /* #3B1C18 - Dark Reddish Brown */
+    --sidebar-primary-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+    --sidebar-accent: 7 31% 23%; /* #4D2A26 - Slightly Brighter Brown-Red */
+    --sidebar-accent-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+    --sidebar-border: 14 25% 14%; /* #2B1F1B - Muted Espresso Brown */
+    --sidebar-ring: 7 31% 23%; /* #4D2A26 - Slightly Brighter Brown-Red */
   }
 }
 
@@ -100,7 +101,7 @@
   }
 
   .dark body {
-    background: linear-gradient(to bottom, #1E1B18, #2A211D);
+    background: linear-gradient(to bottom, #120D0A, #1A1310);
     transition: all 0.2s ease-in-out;
   }
 

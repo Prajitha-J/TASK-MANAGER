@@ -120,27 +120,28 @@ const LoginPage = () => {
           
           <div className="relative my-4">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t border-light-border dark:border-dark-border" />
+              <span className="w-full border-t border-light-border dark:border-dark-divider" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-light-card dark:bg-dark-card px-2 text-light-textSecondary dark:text-dark-textSecondary">OR CONTINUE WITH</span>
+              <span className="bg-light-card dark:bg-dark-card px-2 text-light-textSecondary dark:text-dark-placeholder">OR CONTINUE WITH</span>
             </div>
           </div>
           
           <Button
             variant="outline"
-            className="w-full border-light-border dark:border-dark-border text-light-textPrimary dark:text-dark-textPrimary hover:bg-light-input dark:hover:bg-dark-input"
+            className="w-full border-light-border dark:border-dark-border text-light-textPrimary dark:text-dark-googleText 
+                       bg-light-card dark:bg-dark-googleButton hover:bg-light-input dark:hover:bg-dark-googleHover"
             onClick={handleGoogleAuth}
             disabled={loading}
           >
-            <Chrome className="mr-2 h-4 w-4 text-light-textSecondary dark:text-dark-icon" />
+            <Chrome className="mr-2 h-4 w-4 text-light-textSecondary dark:text-dark-googleText" />
             Google
           </Button>
           
           <div className="mt-4 text-center">
             <Button
               variant="link"
-              className="text-sm text-light-primaryAccent dark:text-dark-primaryAccent hover:text-light-secondaryAccent dark:hover:text-dark-secondaryAccent"
+              className="text-sm text-light-primaryAccent dark:text-dark-placeholder hover:text-light-secondaryAccent dark:hover:text-dark-textSecondary"
               onClick={() => setIsLoginMode(!isLoginMode)}
             >
               {isLoginMode
