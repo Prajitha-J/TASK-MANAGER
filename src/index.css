@@ -48,43 +48,43 @@
 
   .dark {
     /* Dark theme - Brown theme - Updated to match screenshot exactly */
-    --background: 20 33% 11%; /* #291F1A - Darker rich brown for background */
-    --foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
+    --background: 27 10% 11%; /* #1E1B18 - Dark Chocolate Brown */
+    --foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
 
-    --card: 16 25% 16%; /* #332620 - Richer brown for cards */
-    --card-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
+    --card: 22 10% 14%; /* #2A211D - Deep Cocoa Brown */
+    --card-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
 
-    --popover: 16 25% 16%; /* #332620 - Richer brown for popovers */
-    --popover-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
+    --popover: 22 10% 14%; /* #2A211D - Deep Cocoa Brown */
+    --popover-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
 
-    --primary: 14 30% 28%; /* #5C3B31 - Deep reddish-brown */
-    --primary-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
+    --primary: 10 20% 40%; /* #81534B - Muted Reddish Brown */
+    --primary-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
 
-    --secondary: 20 20% 22%; /* #3E322C - Adjusted muted warm brown */
-    --secondary-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
+    --secondary: 22 10% 14%; /* #2A211D - Deep Cocoa Brown */
+    --secondary-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
 
-    --muted: 20 20% 22%; /* #3E322C - Adjusted muted warm brown */
-    --muted-foreground: 42 28% 70%; /* #D2B48C - Soft beige */
+    --muted: 22 10% 14%; /* #2A211D - Deep Cocoa Brown */
+    --muted-foreground: 23 27% 65%; /* #C2A08A - Muted Coffee Beige */
 
-    --accent: 14 30% 28%; /* #5C3B31 - Deep reddish-brown */
-    --accent-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
+    --accent: 10 20% 40%; /* #81534B - Muted Reddish Brown */
+    --accent-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
 
     --destructive: 0 50% 40%; /* #993333 - Deep red-brown */
-    --destructive-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
+    --destructive-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
 
-    --border: 20 15% 25%; /* #4A3A33 - Adjusted soft brown-gray border */
-    --input: 20 15% 25%; /* #4A3A33 - Adjusted soft brown-gray input */
-    --ring: 14 34% 38%; /* #804D3E - Burnt sienna */
+    --border: 22 15% 19%; /* #3A2E28 - Slightly darker than card */
+    --input: 22 15% 19%; /* #3A2E28 - Slightly darker than card */
+    --ring: 10 27% 32%; /* #6D4037 - Darker Brownish Red */
 
     /* Sidebar colors for dark theme */
-    --sidebar-background: 25 30% 8%; /* #201813 - Deeper espresso brown */
-    --sidebar-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
-    --sidebar-primary: 14 30% 28%; /* #5C3B31 - Deep reddish-brown */
-    --sidebar-primary-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
-    --sidebar-accent: 14 34% 38%; /* #804D3E - Burnt sienna */
-    --sidebar-accent-foreground: 32 33% 87%; /* #EAE0D5 - Warm white */
-    --sidebar-border: 20 15% 25%; /* #4A3A33 - Adjusted soft brown-gray border */
-    --sidebar-ring: 14 34% 38%; /* #804D3E - Burnt sienna */
+    --sidebar-background: 28 10% 9%; /* #181512 - Slightly darker than background */
+    --sidebar-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
+    --sidebar-primary: 10 20% 40%; /* #81534B - Muted Reddish Brown */
+    --sidebar-primary-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
+    --sidebar-accent: 10 27% 32%; /* #6D4037 - Darker Brownish Red */
+    --sidebar-accent-foreground: 30 33% 84%; /* #E8D7C5 - Soft Beige */
+    --sidebar-border: 22 15% 19%; /* #3A2E28 - Slightly darker than card */
+    --sidebar-ring: 10 27% 32%; /* #6D4037 - Darker Brownish Red */
   }
 }
 
@@ -100,7 +100,7 @@
   }
 
   .dark body {
-    background: linear-gradient(to bottom, #291F1A, #332620);
+    background: linear-gradient(to bottom, #1E1B18, #2A211D);
     transition: all 0.2s ease-in-out;
   }
 
@@ -198,7 +198,7 @@
   }
 
   .dark .login-container {
-    background: linear-gradient(to bottom, #291F1A, #332620);
+    background: linear-gradient(to bottom, #1E1B18, #2A211D);
   }
 
   .login-card {

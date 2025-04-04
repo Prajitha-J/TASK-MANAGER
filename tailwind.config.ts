@@ -63,20 +63,21 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				dark: {
-					background: '#291F1A',      // Updated darker rich brown
-					card: '#332620',            // Updated richer cocoa brown
-					input: '#3E322C',           // Updated muted warm brown
-					primaryAccent: '#5C3B31',   // Deep reddish-brown (kept same)
-					secondaryAccent: '#804D3E', // Burnt sienna (kept same)
-					textPrimary: '#EAE0D5',     // Warm white (kept same)
-					textSecondary: '#D2B48C',   // Soft beige (kept same)
-					border: '#4A3A33',          // Updated soft brown-gray
-					error: '#993333',           // Deep red-brown (kept same)
-					success: '#6B8E23',         // Warm greenish-brown (kept same)
-					warning: '#B8860B',         // Golden brown (kept same)
-					sidebar: '#201813',         // Updated deep espresso brown
-					inactive: '#574840',        // Muted brown-gray (kept same)
-					placeholder: '#A89582'       // Muted warm beige (kept same)
+					background: '#1E1B18',      // Updated: Dark Chocolate Brown
+					card: '#2A211D',            // Updated: Deep Cocoa Brown
+					input: '#2A211D',           // Matching card background
+					primaryAccent: '#81534B',   // Updated: Muted Reddish Brown
+					secondaryAccent: '#6D4037', // Updated: Darker Brownish Red
+					textPrimary: '#E8D7C5',     // Updated: Soft Beige
+					textSecondary: '#C2A08A',   // Updated: Muted Coffee Beige
+					border: '#3A2E28',          // Slightly darker than card
+					error: '#993333',           // Kept same
+					success: '#6B8E23',         // Kept same
+					warning: '#B8860B',         // Kept same
+					sidebar: '#181512',         // Slightly darker than background
+					inactive: '#574840',        // Kept same
+					placeholder: '#A89582',      // Kept same
+					icon: '#7D5A50'             // Added: Deep Coffee for icons
 				},
 				light: {
 					background: '#FAF7F1',      // Soft warm ivory

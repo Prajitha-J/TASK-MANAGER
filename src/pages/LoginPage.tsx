@@ -60,7 +60,11 @@ const LoginPage = () => {
           onClick={toggleTheme}
           aria-label="Toggle theme"
         >
-          {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          {theme === 'dark' ? (
+            <Sun className="h-5 w-5 text-dark-textPrimary" />
+          ) : (
+            <Moon className="h-5 w-5 text-light-textPrimary" />
+          )}
         </Button>
       </div>
       
@@ -80,7 +84,7 @@ const LoginPage = () => {
           <form onSubmit={handleAuth} className="space-y-4">
             <div className="space-y-4">
               <div className="relative">
-                <Mail className="absolute left-3 top-3 h-5 w-5 text-light-textSecondary dark:text-dark-textSecondary" />
+                <Mail className="absolute left-3 top-3 h-5 w-5 text-light-textSecondary dark:text-dark-icon" />
                 <Input
                   type="email"
                   placeholder="Email"
@@ -92,7 +96,7 @@ const LoginPage = () => {
               </div>
               
               <div className="relative">
-                <Lock className="absolute left-3 top-3 h-5 w-5 text-light-textSecondary dark:text-dark-textSecondary" />
+                <Lock className="absolute left-3 top-3 h-5 w-5 text-light-textSecondary dark:text-dark-icon" />
                 <Input
                   type="password"
                   placeholder="Password"
@@ -129,7 +133,7 @@ const LoginPage = () => {
             onClick={handleGoogleAuth}
             disabled={loading}
           >
-            <Chrome className="mr-2 h-4 w-4" />
+            <Chrome className="mr-2 h-4 w-4 text-light-textSecondary dark:text-dark-icon" />
             Google
           </Button>
           
