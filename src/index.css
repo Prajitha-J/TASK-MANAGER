@@ -34,7 +34,7 @@
     --input: 32 24% 70%; /* #C2B8A3 - Light taupe */
     --ring: 34 36% 62%; /* #C0A27E - Warm sand */
 
-    --radius: 0.75rem; /* 12px border radius */
+    --radius: 0.5rem; /* 8px border radius - more like the screenshots */
 
     /* Sidebar colors for light theme */
     --sidebar-background: 41 50% 95%; /* #F8F4EC - Warm off-white */

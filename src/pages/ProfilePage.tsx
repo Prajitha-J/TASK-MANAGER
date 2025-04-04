@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { User, CalendarDays, Phone, Moon, Sun } from "lucide-react";
@@ -60,7 +59,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/40 to-background p-4">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-light-background dark:bg-dark-background">
       <div className="absolute top-4 right-4">
         <Button 
           variant="ghost" 
@@ -72,71 +71,73 @@ const ProfilePage = () => {
           {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
         </Button>
       </div>
-      <div className="w-full max-w-md mx-auto section-fade-in">
-        <Card className="border-primary/40 border overflow-hidden shadow-lg">
-          <CardHeader className="space-y-1 bg-gradient-to-r from-primary/90 to-primary/70">
-            <CardTitle className="text-3xl font-bold tracking-tight text-center text-white">Complete Your Profile</CardTitle>
-            <CardDescription className="text-white/90 text-center">
+      
+      <div className="w-full max-w-sm mx-auto">
+        <div className="bg-light-card dark:bg-dark-card rounded-lg border border-light-border dark:border-dark-border p-6 shadow-sm">
+          <div className="text-center space-y-2 mb-6">
+            <h1 className="text-2xl font-bold text-light-textPrimary dark:text-dark-textPrimary">
+              Complete Your Profile
+            </h1>
+            <p className="text-sm text-light-textSecondary dark:text-dark-textSecondary">
               Please provide your personal information
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="mt-6">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground/80 font-medium">Full Name</Label>
-                <div className="relative">
-                  <User className="absolute left-3 top-3 h-5 w-5 text-primary" />
-                  <Input
-                    id="name"
-                    placeholder="Enter your full name"
-                    className="pl-10 border-primary/30 focus:border-primary"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                  />
-                </div>
+            </p>
+          </div>
+          
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-1">
+              <Label htmlFor="name" className="text-light-textPrimary dark:text-dark-textPrimary">Full Name</Label>
+              <div className="relative">
+                <User className="absolute left-3 top-3 h-5 w-5 text-light-textSecondary dark:text-dark-textSecondary" />
+                <Input
+                  id="name"
+                  placeholder="Enter your full name"
+                  className="pl-10 bg-light-input dark:bg-dark-input border-light-border dark:border-dark-border text-light-textPrimary dark:text-dark-textPrimary"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
               </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="phone" className="text-foreground/80 font-medium">Phone Number</Label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-3 h-5 w-5 text-primary" />
-                  <Input
-                    id="phone"
-                    placeholder="Enter your phone number"
-                    className="pl-10 border-primary/30 focus:border-primary"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    required
-                  />
-                </div>
+            </div>
+            
+            <div className="space-y-1">
+              <Label htmlFor="phone" className="text-light-textPrimary dark:text-dark-textPrimary">Phone Number</Label>
+              <div className="relative">
+                <Phone className="absolute left-3 top-3 h-5 w-5 text-light-textSecondary dark:text-dark-textSecondary" />
+                <Input
+                  id="phone"
+                  placeholder="Enter your phone number"
+                  className="pl-10 bg-light-input dark:bg-dark-input border-light-border dark:border-dark-border text-light-textPrimary dark:text-dark-textPrimary"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                />
               </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="dob" className="text-foreground/80 font-medium">Date of Birth</Label>
-                <div className="relative">
-                  <CalendarDays className="absolute left-3 top-3 h-5 w-5 text-primary" />
-                  <Input
-                    id="dob"
-                    type="date"
-                    className="pl-10 border-primary/30 focus:border-primary"
-                    value={dob}
-                    onChange={(e) => setDob(e.target.value)}
-                    required
-                  />
-                </div>
+            </div>
+            
+            <div className="space-y-1">
+              <Label htmlFor="dob" className="text-light-textPrimary dark:text-dark-textPrimary">Date of Birth</Label>
+              <div className="relative">
+                <CalendarDays className="absolute left-3 top-3 h-5 w-5 text-light-textSecondary dark:text-dark-textSecondary" />
+                <Input
+                  id="dob"
+                  type="date"
+                  className="pl-10 bg-light-input dark:bg-dark-input border-light-border dark:border-dark-border text-light-textPrimary dark:text-dark-textPrimary"
+                  value={dob}
+                  onChange={(e) => setDob(e.target.value)}
+                  required
+                />
               </div>
-              
-              <Button 
-                type="submit" 
-                className="w-full button-effect bg-primary hover:bg-primary/90 text-primary-foreground"
-                disabled={loading}
-              >
-                Continue
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+            </div>
+            
+            <Button 
+              type="submit" 
+              className="w-full bg-light-primaryAccent dark:bg-dark-primaryAccent hover:bg-light-secondaryAccent dark:hover:bg-dark-secondaryAccent text-white"
+              disabled={loading}
+            >
+              Continue
+            </Button>
+          </form>
+        </div>
       </div>
     </div>
   );
