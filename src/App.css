@@ -1,0 +1,131 @@
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #81534B);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #81534B);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #4D443A;
+}
+
+.dark .read-the-docs {
+  color: #C8B3A3;
+}
+
+/* Custom background gradients - Light Theme */
+.light-gradient {
+  background: linear-gradient(to bottom right, #FAF7F1, #F5F1E9);
+}
+
+/* Custom background gradients - Dark Theme (Updated to exact colors) */
+.dark-gradient {
+  background: linear-gradient(to bottom, #120D0A, #1A1310);
+}
+
+/* Brown-themed UI elements */
+.notion-navbar {
+  background: linear-gradient(to bottom, #120D0A, #1A1310);
+}
+
+.notion-button {
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+}
+
+.notion-button:hover {
+  background: linear-gradient(to right, #3B1C18, #4D2A26);
+}
+
+/* Task status indicators */
+.status-pending {
+  @apply text-light-error dark:text-dark-error;
+}
+
+.status-in-progress {
+  @apply text-light-primaryAccent dark:text-dark-primaryAccent;
+}
+
+.status-completed {
+  @apply text-light-success dark:text-dark-success;
+}
+
+/* Add smooth transitions for interactive elements */
+button, a, input, select, textarea {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Specific styles for the login page to match the brown aesthetic */
+.login-container {
+  @apply bg-light-background dark:bg-dark-background min-h-screen flex items-center justify-center;
+  background: linear-gradient(to bottom, #FAF7F1, #F5F1E9);
+}
+
+.dark .login-container {
+  background: linear-gradient(to bottom, #120D0A, #1A1310);
+}
+
+.login-card {
+  @apply bg-light-card dark:bg-dark-card rounded-xl shadow-light-card dark:shadow-dark-card p-8 max-w-md w-full;
+  border: 1px solid #C2B8A3;
+}
+
+.dark .login-card {
+  border: 1px solid #2B1F1B;
+  box-shadow: none;
+}
+
+.login-heading {
+  @apply text-light-textPrimary dark:text-dark-textPrimary text-2xl font-semibold mb-6;
+}
+
+.login-input {
+  @apply bg-light-input dark:bg-dark-input border border-light-border dark:border-dark-border rounded-lg 
+  text-light-textPrimary dark:text-dark-textPrimary 
+  placeholder:text-light-placeholder dark:placeholder:text-dark-placeholder
+  focus:border-light-primaryAccent dark:focus:border-dark-primaryAccent
+  focus:ring-1 focus:ring-light-primaryAccent dark:focus:ring-dark-primaryAccent;
+}
+
+.login-button {
+  @apply bg-light-primaryAccent dark:bg-dark-primaryAccent hover:bg-light-secondaryAccent dark:hover:bg-dark-secondaryAccent
+  text-white rounded-lg py-2 px-4 transition-all;
+}
+
+/* Apply specific rounded corners to Task Cards */
+.task-card-container {
+  @apply rounded-xl overflow-hidden;
+}

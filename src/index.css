@@ -1,0 +1,228 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme - Beige theme */
+    --background: 42 45% 96%; /* #FAF7F1 - Soft warm ivory */
+    --foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
+
+    --card: 38 40% 94%; /* #F5F1E9 - Light beige */
+    --card-foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
+
+    --popover: 38 40% 94%; /* #F5F1E9 - Light beige */
+    --popover-foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
+
+    --primary: 34 36% 62%; /* #C0A27E - Warm sand */
+    --primary-foreground: 42 45% 96%; /* #FAF7F1 - Soft warm ivory */
+
+    --secondary: 38 40% 94%; /* #F5F1E9 - Light beige */
+    --secondary-foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
+
+    --muted: 36 27% 82%; /* #E0D5C3 - Muted taupe */
+    --muted-foreground: 30 9% 52%; /* #A69F91 - Soft taupe-gray */
+
+    --accent: 37 33% 73%; /* #D6B98C - Golden beige */
+    --accent-foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
+
+    --destructive: 6 33% 60%; /* #C17A6F - Muted red-brown */
+    --destructive-foreground: 42 45% 96%; /* #FAF7F1 - Soft warm ivory */
+
+    --border: 32 24% 70%; /* #C2B8A3 - Light taupe */
+    --input: 32 24% 70%; /* #C2B8A3 - Light taupe */
+    --ring: 34 36% 62%; /* #C0A27E - Warm sand */
+
+    --radius: 0.5rem; /* 8px border radius - more like the screenshots */
+
+    /* Sidebar colors for light theme */
+    --sidebar-background: 41 50% 95%; /* #F8F4EC - Warm off-white */
+    --sidebar-foreground: 37 13% 11%; /* #1E1B16 - Rich dark brown */
+    --sidebar-primary: 37 33% 73%; /* #D6B98C - Golden beige */
+    --sidebar-primary-foreground: 42 45% 96%; /* #FAF7F1 - Soft warm ivory */
+    --sidebar-accent: 34 36% 62%; /* #C0A27E - Warm sand */
+    --sidebar-accent-foreground: 42 45% 96%; /* #FAF7F1 - Soft warm ivory */
+    --sidebar-border: 32 24% 70%; /* #C2B8A3 - Light taupe */
+    --sidebar-ring: 34 36% 62%; /* #C0A27E - Warm sand */
+  }
+
+  .dark {
+    /* Updated Dark theme - Exact match to the provided colors */
+    --background: 18 25% 5%; /* #120D0A - Near-Black Deep Brown */
+    --foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+
+    --card: 16 15% 8%; /* #1A1310 - Dark Chocolate Brown */
+    --card-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+
+    --popover: 16 15% 8%; /* #1A1310 - Dark Chocolate Brown */
+    --popover-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+
+    --primary: 7 37% 16%; /* #3B1C18 - Dark Reddish Brown */
+    --primary-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+
+    --secondary: 16 15% 8%; /* #1A1310 - Dark Chocolate Brown */
+    --secondary-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+
+    --muted: 16 15% 8%; /* #1A1310 - Dark Chocolate Brown */
+    --muted-foreground: 24 24% 59%; /* #C8B3A3 - Soft Beige */
+
+    --accent: 7 37% 16%; /* #3B1C18 - Dark Reddish Brown */
+    --accent-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+
+    --destructive: 0 50% 40%; /* #993333 - Deep red-brown */
+    --destructive-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+
+    --border: 14 25% 14%; /* #2B1F1B - Muted Espresso Brown */
+    --input: 14 25% 14%; /* #2B1F1B - Muted Espresso Brown */
+    --ring: 7 31% 23%; /* #4D2A26 - Slightly Brighter Brown-Red */
+
+    /* Sidebar colors for dark theme */
+    --sidebar-background: 18 25% 5%; /* #120D0A - Near-Black Deep Brown */
+    --sidebar-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+    --sidebar-primary: 7 37% 16%; /* #3B1C18 - Dark Reddish Brown */
+    --sidebar-primary-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+    --sidebar-accent: 7 31% 23%; /* #4D2A26 - Slightly Brighter Brown-Red */
+    --sidebar-accent-foreground: 29 57% 90%; /* #F5E6D8 - Warm Off-White */
+    --sidebar-border: 14 25% 14%; /* #2B1F1B - Muted Espresso Brown */
+    --sidebar-ring: 7 31% 23%; /* #4D2A26 - Slightly Brighter Brown-Red */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .dark body {
+    background: linear-gradient(to bottom, #120D0A, #1A1310);
+    transition: all 0.2s ease-in-out;
+  }
+
+  body {
+    background: linear-gradient(to bottom, #FAF7F1, #F5F1E9);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-lg border border-primary/30 rounded-lg shadow-sm;
+  }
+  
+  .dark .glass-effect {
+    @apply bg-black/20 backdrop-blur-lg border border-dark-border rounded-lg shadow-sm;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-[1.02];
+  }
+
+  .button-effect {
+    @apply transition-all duration-300 hover:shadow-md active:translate-y-0.5;
+  }
+  
+  .section-fade-in {
+    @apply opacity-0;
+    animation: fadeIn 0.7s ease-in-out forwards;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .dialog-content, 
+  .popover-content {
+    @apply max-h-[80vh] overflow-y-auto;
+  }
+  
+  .rdp {
+    @apply pointer-events-auto;
+  }
+  
+  .event-form-container {
+    @apply max-h-[75vh] overflow-y-auto px-2;
+  }
+
+  .card {
+    @apply shadow-light-card rounded-xl border border-border/40;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  .dark .card {
+    @apply shadow-dark-card rounded-xl border border-dark-border/40;
+    background: #2E221E;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .dark .task-card {
+    @apply bg-dark-card border-dark-border text-dark-textPrimary;
+  }
+  
+  .dark .success-indicator {
+    @apply text-dark-success;
+  }
+  
+  .dark .warning-indicator {
+    @apply text-dark-warning;
+  }
+  
+  .dark .error-indicator {
+    @apply text-dark-error;
+  }
+  
+  .dark .sidebar-nav {
+    @apply bg-dark-sidebar border-r border-dark-border;
+  }
+  
+  .dark .sidebar-item-active {
+    @apply bg-dark-primaryAccent text-dark-textPrimary;
+  }
+  
+  .modal-backdrop {
+    @apply backdrop-blur-[10px] bg-black/50;
+  }
+
+  .login-container {
+    @apply bg-light-background dark:bg-dark-background min-h-screen flex items-center justify-center;
+    background: linear-gradient(to bottom, #FAF7F1, #F5F1E9);
+  }
+
+  .dark .login-container {
+    background: linear-gradient(to bottom, #1E1B18, #2A211D);
+  }
+
+  .login-card {
+    @apply bg-light-card dark:bg-dark-card rounded-xl shadow-light-card dark:shadow-dark-card p-8 max-w-md w-full;
+    border: 1px solid #C2B8A3;
+  }
+
+  .dark .login-card {
+    border: 1px solid #4A3A33;
+    box-shadow: none;
+    background-color: #332620;
+  }
+
+  .login-input {
+    @apply bg-light-input dark:bg-dark-input border border-light-border dark:border-dark-border rounded-lg 
+    text-light-textPrimary dark:text-dark-textPrimary 
+    placeholder:text-light-placeholder dark:placeholder:text-dark-placeholder
+    focus:border-light-primaryAccent dark:focus:border-dark-primaryAccent
+    focus:ring-1 focus:ring-light-primaryAccent dark:focus:ring-dark-primaryAccent;
+  }
+
+  .login-button {
+    @apply bg-light-primaryAccent dark:bg-dark-primaryAccent hover:bg-light-secondaryAccent dark:hover:bg-dark-secondaryAccent
+    text-white rounded-lg py-2 px-4 transition-all;
+  }
+}
